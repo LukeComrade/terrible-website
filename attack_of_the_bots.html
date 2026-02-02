@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<body>
+    <div class="center_div_drive" style="background-color: #000;">
+        <h1 class="main_title" id="HEY"><a href="./cattext.html">HEY THERE!</a></h1>
+        <p class="center_div_drive" id="welcome_text">Welcome to... uh, this...place?</p>
+    </div>
+    <div class="cat">
+        <p id="op_text">
+            So, what's this? That's probably what you're asking right now. <br>
+            I have no idea, to be quite honest with you. I don't even know why you're here... <br>
+            Well since we're in this situation...<br>
+            Go ahead and browse around. This place does seem quite weird.
+        </p>
+        <p id="op_text">
+            Go on ahead. Nothing more to see here.
+        </p>
+    
+
+    </div>
+    
+    <img src="./yeah.jpg" class="actualcat">
+    <h3 class="textguy actualcat" id="actuallyactually">aa</h3>
+
+    <div class="cat">
+        <p id="goodguy">HUUUH!?!?!?!</p>
+        <p id="op_text">
+            I don't know what you're still doing here, since this place is just a wasteland.
+            I don't really get people like you. But at least it gives me company, right?
+            ...
+            Isn't that why you're here?
+            ...
+            No?
+        </p>
+        <p id="op_text">
+            Welp, so what are you still doing here?
+        </p>
+    
+
+    </div>
+    <div class="cat">
+        <p id="op_text"> play that <button onclick="playMEEEEE()"> class="playsomething"> YES MEE HE'S TALKING ABOUT ME!!!</a></button>
+        <p id="op_text">
+            Oh, by the way, while you're here,
+            Do note that this place is a **work in progress**, given by the uh, emptiness of it. <br>
+            Well, it has always been like this. <br>
+            I don't know why but, you know? I've got a feeling it's because the creator is... <br>
+            a bit... you know? busy trying to work on crazy (!!!) projects. (not really) <br>
+            Well, I'm just trying to help uhh clean this place up, I guess. You do NOT want to see <br>
+            what the hell this looked like a few days ago. <br>
+            also, I made this in idk, 20 minutes, so expect terrible code if you're the type to <br>
+            'review' them.
+        </p>
+        <p id="op_text">
+            Okay, this time, there's nothing more to see... except.... <br>
+            hold on, he's here.
+        </p>
+    
+
+    </div>
+    <div class="cat">
+        <p id="op_text2">
+            Dear, Hello, Hi, Fellow Humans, the CREATOR here, I have come to say the purpose of this website...<br>
+            I created this site to... Actually I forgot. <br>
+            So this place may be left to be deserted forever.<br>
+            ...Until I remember of course.<br>
+            Until next time, goodbye.<br>
+        </p>
+        <p id="op_text">
+            uhuhuhuhuh. what was that?
+        </p>
+    
+
+    </div>
+
+    <footer class="the_footer_tm">
+        <div class="the_footer_content_tm">
+            <section class="the_footer_section_tm">
+                <p>Very true</p>
+                <p>Goodbye.</p>
+                <p>For we, the ones living in this world must work our way to the Rasrikosher.</p>
+                <p>10.12.2024</p>
+            </section>
+        </div>
+    </footer>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap');
+
+    :root {
+        --main_bg_color: #031926;
+        --secondary_color: #9DBEBB;
+
+        --main_text_color_rg: #9DBEBB;
+        --main_text_bgw: #031926;
+        --main_text_bgb: #F4E9CD;
+        --main_text_background_b: #F4E9CD;
+        --main_text_background_w: #031926;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    body {
+        background-color: var(--main_bg_color);
+        margin: 0;
+    }
+
+    .actualcat  {
+        position: fixed;
+        right: 10%;
+        flex-basis: auto;
+        animation: catfly 3s infinite;
+    }
+    .actualcat::before
+    .actualcat::after {
+        clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+        animation: catfly 01s infinite;
+    }
+
+    .textguy {
+        color: white;
+        text-shadow:  0px 0px 5px black;
+        bottom: 450px;
+        animation: badguyyy 1s infinite;
+    }
+
+
+
+    @keyframes catfly {
+        0%, 100% {
+            transform: translate(0);
+        }
+        20% {
+        transform: translate(-200px, 2px);
+        rotate: -30deg;
+        }
+        40% {
+        transform: translate(2px, -1px);
+        rotate: 0deg;
+        }
+        60% {
+        transform: translate(100px, 1px);
+        rotate: 30deg;
+        }
+        80% {
+        transform: translate(5px, 50px);
+        rotate: 0deg;
+    }
+    }
+
+    @keyframes badguyyy {
+        0%, 100% {
+            color: var(--main_text_color_rg);
+            scale: 1 1;
+        }
+        20% {
+            color: red;
+            scale: 1.4 1.2;
+        }
+        40% {
+        color: var(--main_text_color_rg);
+        }
+        60% {
+            color: red;
+            scale: 1 1;
+        }
+        80% {
+            color: var(--main_text_color_rg);
+            scale: 1.4 1.2;
+    }
+    }
+
+    .center_div_drive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .main_title {
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+        max-width: fit-content;
+    }
+
+    .main_title:hover {
+        background: url("highlight_weeird.gif");
+        background-size:contain;
+        color: white;
+        text-shadow:  0px 0px 5px var(--main_bg_color);
+        image-rendering: pixelated;
+    }
+
+    #op_text {
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 50%;
+        padding: 20px;
+    }
+    #goodguy {
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 50%;
+        padding: 20px;
+        animation: goodguyyy 0.2s infinite alternate;
+    }
+
+    @keyframes goodguyyy {
+        0%, 100% {
+        transform: translate(0);
+        }
+        20% {
+        transform: translate(-1px, 1px);
+        }
+        40% {
+        transform: translate(1px, -1px);
+        }
+        60% {
+        transform: translate(-2px, 1px);
+        }
+        80% {
+        transform: translate(2px, -3px);
+    }
+    }
+
+    #op_text2 {
+        font-family: Sankofa Display;
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 45%;
+        margin-left: 70px;
+        padding: 20px;
+        rotate: 5deg;
+    }
+
+    p {
+        display: flex;
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+    }
+    
+    .the_footer_content_tm {
+        padding: 48px 24px;
+        max-width: 100%;
+        position: relative;
+    }
+
+    .the_footer_tm {
+        position: relative;
+        bottom: 0;
+        background: #000;
+        clear: both;
+        color: #fff;
+        margin: 0;
+        padding-top: 24px;
+        width: 100%;
+    }
+
+    .the_footer_section_tm {
+        padding: 0 24px 0 0;
+    }
+</style>
+
+<script>
+    let cc = true;
+    let index = 0;
+    let index2 = 0;
+    let cc2 = true;
+    const annoying_stoner_cat = [
+        "so wazzup lil f*cks",
+        "im ya helpful little fcker ASSISTANT",
+        "AND I KNOW YOU KNOW MY NAME",
+        "and if you dont...",
+        "ITS LIL ICESCREAM BABYY!!!!",
+        "want me to ANNOY YOU??!!?!?",
+        "im gonna take over the world yeah",
+        "and im gonna bring johnyy with me!!!!",
+        "yes!!!!",
+        "I DONT CARE ABOUT YOU",
+        "but I'm getting paid sooo",
+        "i dont really want to yeyeeye",
+        "but boy you're hot",
+        "so go touch me if you want to have some real fun",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me",
+        "touch me *in an agressive tone*",
+        "touches you isntead",
+        "doeswnt thawt fweel cutew?",
+        "uwu my ass!!!!",
+        "HELL YEAH!!!!!!!"
+    ]
+
+    const only_reasonable_person_in_this_website = [
+        "WHAT THE HELL IS THAT???",
+        "A VIRUS???",
+        "TERRORIZING MY GODDAMN WEBSITE???",
+        "WHAT",
+        "GO AWAY",
+        "WE DON'T USE THAT KIND OF LANGUAGE HERE",
+        "GO AWAY 'WHOEVER THE HELL YOU ARE'!!!",
+        "WE HATE YOU",
+        "DIE",
+        "KILL YOURSELF",
+        "EXPLODE",
+        "I DON'T CARE",
+        "LALALLALALALAA",
+        "SHUT UP!!!!!!!",
+        "YOU'RE SO LOUD!!!!!!!!!!!!!!!",
+        "WHY ARE YOU EVEN HERE!!!!!!!!!!!!!?????????",
+        "GODDAMMMIITIT",
+        "IM GONNA KILL YOU",
+        "DIEEEE!!!!!"
+    ]
+
+    function playMEEEEE() {
+        var audio = new Audio('./Project_68.mp3');
+        audio.play();
+    }
+
+    function delay(duration) {
+        return new Promise(resolve => setTimeout(resolve, duration));
+    }
+    
+    setInterval(
+        function() {
+            const welcome_word_bank = [
+            "Welcome",
+            "Bienvenido",
+            "Bienvenue",
+            "Willkommen",
+            "Benvenuto",
+            "ようこそ",
+            "환영합니다",
+            "欢迎",
+            "Добро пожаловать",
+            "स्वागत है",
+            "Bem-vindo",
+            "Welkom",
+            "Karibu",
+            "أهلا وسهلا بك",
+            "Selamat datang",
+            "Tervetuloa",
+            "Vitajte",
+            "Witamy",
+            "Καλώς ήρθατε",
+            "Velkommen",
+            "Meow",
+            "Mrrow"
+            ]
+            
+            const color_bank = [
+                "#F4E9CD", "#77ACA2", "#468189", "#031926"
+            ]
+
+
+            if (index == annoying_stoner_cat.length - 1) {
+            index = 0;} 
+            if (index2 == only_reasonable_person_in_this_website.length - 1) {
+            index2 = 0;} 
+            
+            
+            if (cc == true) {
+                writeTextToActually(annoying_stoner_cat[index]);
+                index += 1;
+                console.log(annoying_stoner_cat[index]);
+            }
+
+            if (cc2 == true) {
+                writeTextTogood(only_reasonable_person_in_this_website[index2]);
+                index2 += 1;
+                console.log(only_reasonable_person_in_this_website[index2]);
+            }
+
+            let randomInt = Math.floor(Math.random() * 22);
+
+            document.getElementById("welcome_text").innerHTML = welcome_word_bank[randomInt] + " to... uh, NO TIME FOR PLEASANTRIES! THIS IS A PRISON!!!!"
+        }, 1000
+        
+    )
+
+        async function writeTextToActually(string) {
+            document.getElementById("actuallyactually").innerHTML = "";
+            cc = false
+            for (let i = 0; i < string.length;) {
+                document.getElementById("actuallyactually").innerHTML += string.charAt(i);
+                i++;
+                
+                await delay(50);
+            }
+            cc = true;
+        }
+
+        async function writeTextTogood(string) {
+            document.getElementById("goodguy").innerHTML = "";
+            cc2 = false
+            for (let i = 0; i < string.length;) {
+                document.getElementById("goodguy").innerHTML += string.charAt(i);
+                i++;
+                
+                await delay(30);
+            }
+            cc2 = true;
+        }
+</script>

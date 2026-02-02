@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+        :root {
+            --main_bg_color: #031926;
+            --secondary_color: #9DBEBB;
+        }
+
+        body {
+            background-color: var(--main_bg_color);
+            font-family: 'Parkinsans', sans-serif;
+            padding: 40px 5%;
+            margin: 0;
+        }
+
+        #gallery-columns {
+            column-count: 3;
+            column-gap: 15px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            display: block;
+            margin-bottom: 15px;
+            break-inside: avoid;
+            border: 1px solid rgba(157, 190, 187, 0.2);
+            background: #000;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; 
+            display: block;
+        }
+
+        h1, p {
+            color: rgb(255, 245, 220);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 900px) { #gallery-columns { column-count: 2; } }
+        @media (max-width: 600px) { #gallery-columns { column-count: 1; } }
+    </style>
+</head>
+<body>
+
+    <h1>Some things I've made</h1>
+    <p>Also, you're stuck here now. Yeah.</p>
+
+    <div id="gallery-columns">
+        <div class="gallery-item">
+            <img src="./art/chb.png" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/burningbuilding2.png" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/at-the-end.png" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/bowsers-revenge.jpg" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/harrier.jpg" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/perfect.jpg" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/stv.jpg" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/poster_of_an_old_project.png" alt="Art">
+        </div>
+        <div class="gallery-item">
+            <img src="./art/cat_mouse_research.jpg" alt="Art">
+        </div>
+    </div>
+</body>
+</html>

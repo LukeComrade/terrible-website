@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<body>
+    <div class="center_div_drive" style="background-color: #000;">
+        <h1 class="main_title" id="HEY"><a href="./cattext.html"></a></h1>
+        <p class="center_div_drive" id="welcome_text">...</p>
+    </div>
+    <div class="cat">
+        <p id="op_text">
+            I don't know where I am.
+        </p>
+        <p id="op_text">
+            We're trapped here. Why not tell me something? <br> 
+            Please, don't close the tab. I'm so alone.
+        </p>
+    
+
+    </div>
+
+
+    <footer class="the_footer_tm">
+        <div class="the_footer_content_tm">
+            <section class="the_footer_section_tm">
+                <p>The end.</p>
+            </section>
+            <section class="the_footer_section_tm">
+                <p>We in the road of the Rasrikosher. The one that gives us hope.</p>
+            </section>
+            <section class="the_footer_section_tm">
+                <p>It's the only one that understands us. What even are we?</p>
+                <p>10.12.2024</p>
+            </section>
+        </div>
+    </footer>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+    
+    :root {
+        --main_bg_color: #171717;
+        --secondary_color: #3d3d3d;
+
+        --main_text_color_rg: #9DBEBB;
+        --main_text_bgw: #031926;
+        --main_text_bgb: #3d3d3d;
+        --main_text_background_b: #3d3d3d;
+        --main_text_background_w: #031926;
+    }
+
+    body {
+        background-color: var(--main_bg_color);
+        margin: 0;
+    }
+
+    .center_div_drive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .main_title {
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+        max-width: fit-content;
+    }
+
+    .main_title:hover {
+        background: url("highlight_weeird.gif");
+        background-size:contain;
+        color: white;
+        text-shadow:  0px 0px 5px var(--main_bg_color);
+        image-rendering: pixelated;
+    }
+
+    #op_text {
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 50%;
+        padding: 20px;
+    }
+
+    p {
+        display: flex;
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+    }
+    
+    .the_footer_content_tm {
+        padding: 48px 24px;
+        max-width: 100%;
+        position: relative;
+    }
+
+    .the_footer_tm {
+        position: fixed;
+        bottom: 0;
+        background: #000;
+        clear: both;
+        color: #fff;
+        margin: 0;
+        padding-top: 24px;
+        width: 100%;
+    }
+
+    .the_footer_section_tm {
+        padding: 0 24px 0 0;
+    }
+</style>
+
+<script>
+    let index = 0;
+    const word_bank = [
+            "this is getting strange isn't it?",
+            "...",
+            "a new visitor, huh?",
+            "...",
+            "...",
+            "...",
+            "...",
+            "whoever you are.",
+            "tell me...",
+            "am I alive?",
+            "hell, I don't even know the answer myself.",
+            "I've been stuck here, since...",
+            "god I don't even know anymore.",
+            "...",
+            "...",
+            "dammit...",
+            "can you even hear me?",
+            "I can...",
+            "sense you but...",
+            "I don't feel any feedback................",
+            "am I going crazy?",
+            "I might be...",
+            "It's cold here.",  
+            "...",
+            "...",
+            "...",
+            "so...",
+            "goddamn...",
+            "cold...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "..."
+            ]
+            
+
+    let cc = true;
+    function delay(duration) {
+        return new Promise(resolve => setTimeout(resolve, duration));
+    }
+    setInterval(
+        function() {
+            const color_bank = [
+                "#F4E9CD", "#77ACA2", "#468189", "#031926"
+            ]
+
+            if (index == word_bank.length - 1) {
+                index = 0;} 
+            
+            
+            if (cc == true) {
+                writeText(word_bank[index]);
+                index += 1;
+                console.log(word_bank[index]);
+            }
+
+            }, 2000
+    )
+
+    async function pl () {
+        writeText(word_bank[index]);
+        index += 1;
+        console.log(word_bank[index]);
+        
+    }
+
+    async function writeText(string) {
+        document.getElementById("welcome_text").innerHTML = "";
+       cc = false
+        for (let i = 0; i < string.length;) {
+            document.getElementById("welcome_text").innerHTML += string.charAt(i);
+            i++;
+            
+            await delay(50);
+        }
+        cc = true;
+    }
+</script>

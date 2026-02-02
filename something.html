@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+        :root {
+            --main_bg_color: #031926;
+            --secondary_color: #9DBEBB;
+            --main_text_color_rg: #9DBEBB;
+            --main_text_background_b: #F4E9CD;
+            --main_text_bgw: #031926;
+        }
+
+        body {
+            background-color: var(--main_bg_color);
+            font-family: 'Parkinsans', sans-serif;
+            color: var(--main_text_color_rg);
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        #chat-window {
+            border: 2px solid var(--secondary_color);
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 100%; 
+            height: 400px; 
+            overflow-y: scroll; 
+            padding: 20px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: var(--main_text_background_b);
+            color: var(--main_text_bgw);
+            padding: 12px 18px;
+            margin: 10px 0;
+            max-width: 75%;
+            align-self: flex-start; /* Keeps bubbles to the left */
+            position: relative;
+            animation: message-slide 0.4s cubic-bezier(0.36,0.11,0.25,1.00) forwards;
+        }
+
+        /* SYSTEM TEXT (Centered, no bubble) */
+        .system-msg {
+            align-self: center;
+            background: none;
+            color: var(--secondary_color);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            text-align: center;
+            max-width: 100%;
+            opacity: 0.7;
+        }
+
+        @keyframes message-slide {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        audio {
+            width: 100%;
+            height: 30px;
+            margin-top: 8px;
+            filter: sepia(20%) saturate(70%) hue-rotate(130deg);
+        }
+
+        .chat-img { max-width: 100%; border-radius: 2px; }
+        .container p { margin: 0; font-weight: 500; }
+        .time-right { font-size: 0.6rem; float: right; margin-top: 5px; opacity: 0.5; }
+
+        button {
+            background-color: var(--secondary_color);
+            color: var(--main_bg_color);
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Parkinsans', sans-serif;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+
+        button:hover { background-color: white; }
+        #chat-window::-webkit-scrollbar { width: 5px; }
+        #chat-window::-webkit-scrollbar-thumb { background: var(--secondary_color); }
+
+        .navbar {
+            background-color: var(--main_text_background_b);
+            padding: 3px 3px;
+            /* margin: -20px -20px 20px -20px; */
+        }
+
+        .navbar h3 {
+            margin: 0;
+            color: var(--main_bg_color);
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h3>MSM Messenger but <i>modernTM</i></h3>
+    </div>
+
+    <div id="chat-window"></div>
+
+    <button onclick="display_new_message()">CONTINUE</button>
+
+    <script>
+        const chatWindow = document.getElementById('chat-window');
+        
+        const message_bank = [
+            "Hey!!!",
+            "Ummm, there hasn't been any visitors in a while so, hi!",
+            "Oh yeah, listen to this",
+            "cluttered_sandbox_vu(1).mp3",
+            "pretty cool right?",
+            "anyway. So you might be wondering what this place is",
+            "to be quite hoenst, I have don't really either.",
+            "but man, you should've SEEN what this looked like before",
+            "bzzt. bzzt. Oh, do you wanna listen to another one?",
+            "New Song (5)2.mp3",
+            "sweet. i haven't heard this one either",
+            "Oh? you're sasying something?",
+            "too bad I can't hear it.",
+            "...",
+            "Oh! I have a weird story to tell you.",
+            "wait, listen to this first.",
+            "untitled.mp3",
+            "so, the creator have this weird friend from the states",
+            "and he was into this guy, and he realized he wasn't into him",
+            "so he made the creator make this whoole song about it",
+            "i dunno, kinda funny in a sad way i guess",
+            "but I mean, who am I to judge, right?",
+            "anyway, I think that's enough for now.",
+            "goodbye.",
+            "SYSTEM: TERMINATED CONNECTION"
+        ];
+        
+        let message_index = 0;
+
+        function display_new_message() {
+            if (message_index < message_bank.length) {
+                displayMessage(message_bank[message_index]);
+                message_index += 1;
+            }
+        }
+
+        function displayMessage(msg) {
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const msgDiv = document.createElement('div');
+            
+            const isSystem = msg.startsWith("SYSTEM:");
+            
+            if (isSystem) {
+                msgDiv.className = 'system-msg';
+                msgDiv.innerHTML = `${msg}`;
+            } else {
+                msgDiv.className = 'container';
+                
+                // Detect Content Type
+                const isImage = msg.match(/\.(jpeg|jpg|gif|png|webp)$/) != null || msg.includes('text=');
+                const isAudio = msg.match(/\.(mp3|wav|ogg|m4a)$/) != null;
+
+                if (isAudio) {
+                    msgDiv.innerHTML = `<audio controls><source src="${msg}"></audio>`;
+                } else if (isImage) {
+                    msgDiv.innerHTML = `<img src="${msg}" class="chat-img">`;
+                } else {
+                    msgDiv.innerHTML = `<p>${msg}</p>`;
+                }
+                
+                msgDiv.innerHTML += `<span class="time-right">${time}</span><div style="clear:both;"></div>`;
+            }
+            
+            chatWindow.appendChild(msgDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        window.onload = () => displayMessage("SYSTEM: ONLINE, INCOMING MESSAGE");
+    </script>
+</body>
+</html>

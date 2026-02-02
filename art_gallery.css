@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+:root {
+    --main_bg_color: #1c1c1c;
+    --secondary_bg_color: #000000;
+    --secondary_text_color: #9DBEBB;
+    --main_text_color_rg: #9DBEBB;
+    --main_text_bgw: #131313;
+    --main_text_bgb: #F4E9CD;
+    --footer_height: 30vh;
+}
+
+html,
+body {
+    font-family: Parkinsans;
+    background-color: var(--main_bg_color);
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.navbar {
+    position: static;
+    z-index: 100;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--secondary-bgcolor);
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.navbar>a {
+    text-decoration: none;
+    font-family: Parkinsans;
+    color: var(--main_text_bgb);
+    padding: 2%;
+    align-self: center;
+}
+
+.navbar>a:hover {
+    color: var(--main_text_color_rg);
+}
+
+.content {
+    height: 363vh;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    width: 100%;
+    height: 90vh;
+    background-image: url(burningbuilding2.png);
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    color: var(--main_text_bgb);
+}
+
+.content>section {
+    height: 60vh;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    line-break: anywhere;
+}
+
+.content>section:nth-child(3) {
+    background-color: var(--secondary_bg_color);
+}
+
+img {
+    padding: 10px;
+    width: 40%;
+}
+
+.text {
+    font-size: large;
+    padding: 5%;
+    text-align: center;
+    width: 40%;
+}
+
+h3 {
+    font-size: medium;
+    color: var(--secondary_text_color);
+}
+
+span {
+    display: inline;
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg);
+    text-align: center;
+    text-justify: newspaper;
+    width: 500px;
+}
+
+.foot {
+    /* position: fixed; */
+    bottom: 0;
+    background: #000;
+    clear: both;
+    align-content: center;
+    text-align: center;
+    color: var(--main_text_bgb);
+    margin: 0;
+    padding-top: 24px;
+    width: 100%;
+    height: var(--footer_height);
+}

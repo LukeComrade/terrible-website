@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<body>
+    <div class="everything">
+    <div class="center_div_drive" style="background-color: #000;">
+        <section class="topbar_section_a">
+            <h1 class="main_title" id="HEY"><a class="main_title_lnk" href="./cattext.html">HEY THERE!</a></h1>
+            <p class="center_div_drive" id="welcome_text">Welcome to... uh, this...place?</p>
+        </section>
+        <section class="topbar_section_b">
+            <a class="topbar_lg" href="index.html">HOME</a>
+            <a class="topbar_lg" href="#">ART</a> 
+            <a class="topbar_lg" href="#">RANDOM</a>
+            <a class="topbar_lg" href="#">ABOUT+CONTACT</a>
+        </section>
+    </div>
+
+    <div class="cat">
+        <p id="op_text">
+            Hello! Feel free to contact me about anything, whether it's to say hello or to <br>
+            commission something, I don't mind. PS. If you find the hidden rom file somewhere <br>
+            I'll give you 20 dollars.
+            <br>
+            <br>
+            <br>
+            Email:
+            lukemightbehuman@gmail.com
+        </p>
+    <p id="op_text">
+        Go on ahead. Nothing more to see here.
+    </p>
+    </div>
+
+
+    <footer class="the_footer_tm">
+        <div class="the_footer_content_tm">
+            <section class="the_footer_section_tm">
+                <p>Very true</p>
+                <p>Goodbye.</p>
+                <p>For we, the ones living in this world must work our way to the Rasrikosher.</p>
+                <p>10.12.2024</p>
+            </section>
+        </div>
+    </footer>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+    :root {
+        --main_bg_color: #031926;
+        --secondary_color: #9DBEBB;
+
+        --main_text_color_rg: #9DBEBB;
+        --main_text_bgw: #031926;
+        --main_text_bgb: #F4E9CD;
+        --main_text_background_b: #F4E9CD;
+        --main_text_background_w: #031926;
+        --footer_height: 300px;
+    }
+
+    .everything {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        min-height: calc(100vh - var(--footer_height));
+    }
+
+    .topbar_lg {
+        font-family: Parkinsans;
+        color: white;
+        text-decoration: none;
+        padding: 8px;
+    }
+
+    .topbar_lg:hover {
+        color: #9DBEBB;
+    }
+
+    .main_title_lnk {
+        color: white;
+        text-decoration: none;
+    }    
+
+    body {
+        background-color: var(--main_bg_color);
+        margin: 0;
+    }
+
+    .topbar_section_a {
+        max-width: fit-content;
+        align-items:start;
+        left: 0%;
+        margin-left: 5%;
+    }
+
+    .topbar_section_b {
+        max-width: fit-content;
+        width: fit-content;
+        position:absolute;
+        right: 0%;
+        padding-right: 5%;
+        
+    }
+
+    .center_div_drive {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .main_title {
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+        max-width: fit-content;
+    }
+
+    .main_title:hover {
+        background: url("highlight_weeird.gif");
+        background-size:contain;
+        color: white;
+        text-shadow:  0px 0px 5px var(--main_bg_color);
+        image-rendering: pixelated;
+    }
+
+    #op_text {
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 50%;
+        padding: 20px;
+    }
+
+    @keyframes shaking { /* 0.2s infinite alternate */
+        0%, 100% {
+        transform: translate(0);
+        }
+        20% {
+        transform: translate(-1px, 1px);
+        }
+        40% {
+        transform: translate(1px, -1px);
+        }
+        60% {
+        transform: translate(-2px, 1px);
+        }
+        80% {
+        transform: translate(2px, -3px);
+    }
+    }
+
+    .playsomething {
+        position: relative;
+        margin-left: 20px;
+        animation: shaking 0.2s infinite alternate;
+    }
+
+    #op_text2 {
+        font-family: Sankofa Display;
+        color: var(--main_text_bgw);
+        background-color: var(--main_text_background_b);
+        margin: 32px;
+        margin-right: 45%;
+        margin-left: 70px;
+        padding: 20px;
+        rotate: 5deg;
+    }
+
+    p {
+        display: flex;
+        font-family: Parkinsans;
+        color: var(--main_text_color_rg);
+    }
+    
+    .the_footer_content_tm {
+        padding: 48px 24px;
+        max-width: 100%;    
+        position: relative;
+    }
+
+    .the_footer_tm {
+        /* position: fixed; */
+        height: var(--footer_height);
+        bottom: 0;
+        background: #000;
+        clear: both;
+        color: #fff;
+        margin: 0;
+        padding-top: 24px;
+        width: 100%;
+    }
+    
+
+    .the_footer_section_tm {
+        padding: 0 24px 0 0;
+    }
+</style>

@@ -1,0 +1,68 @@
+@keyframes rain {
+    0% {
+        transform: translate(0);
+        rotate: 30deg;
+    }
+ 
+    20% {
+        transform: translate(50px, 25vh);
+        rotate: 35deg;
+    }
+    
+    40% {
+        transform: translate(150px, 50vh);
+        rotate: 25deg;
+    }
+
+    60% {
+        transform: translate(50px, 75vh);
+        rotate: 35deg;
+    }
+
+    80% {
+        transform: translate(150px,100vh);
+        rotate: 25deg;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 125vh);
+        rotate: 30deg;
+    }
+}
+html, body{
+    height:100vh;
+}
+.rain {
+    animation: forwards rain 7s ease-in-out;
+    rotate: 30deg;
+    height: 150px;
+    width: 150px;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    margin-left: 200px;
+    border: 1px black solid;
+    box-sizing: border-box;
+}
+
+.rain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rain p {
+    font-size: 0.9rem;
+    text-align: center;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 5px;
+}

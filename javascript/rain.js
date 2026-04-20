@@ -165,7 +165,7 @@ function on_ready() {
     
     // mus
     bgMusic = document.createElement("audio");
-    bgMusic.src = "./audio/project_78.mp3";
+    bgMusic.src = "./audio/Project_78.mp3";
     bgMusic.style.display = "none";
     bgMusic.loop = true;
     bgMusic.volume = musvol;

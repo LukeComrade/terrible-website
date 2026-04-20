@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rain</title>
-    <link rel="stylesheet" href="./rain.css">
+    <link rel="preload" href="audio/explosion.mp3" as="audio">
+    <link rel="stylesheet" href="./css/rain.css">
 </head>
 <body>
-    <script src="./rain.js"></script>
+    <div id="score">Score: 0</div>
+    <div id="best-score">Best Score: 0</div>
+    <input type="range" id="volume" name="volume" min="0" max="1" step="0.01" value="0.5" onchange="onChangeVol(this.value)">
+    <input type="range" id="sfxvolume" name="sfxvolume" min="0" max="1" step="0.01" value="0.5" onchange="onChangeSFXVol(this.value)">
+    <button id="home" onclick="onhome()">I wanna go back home now.</button>
+    <script src="./javascript/rain.js"></script>
 </body>
 </html>

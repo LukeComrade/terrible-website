@@ -1,87 +1,155 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Terrible Gallery</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
-
-        :root {
-            --main_bg_color: #031926;
-            --secondary_color: #9DBEBB;
-        }
-
-        body {
-            background-color: var(--main_bg_color);
-            font-family: 'Parkinsans', sans-serif;
-            padding: 40px 5%;
-            margin: 0;
-        }
-
-        #gallery-columns {
-            column-count: 3;
-            column-gap: 15px;
-            width: 100%;
-        }
-
-        .gallery-item {
-            display: block;
-            margin-bottom: 15px;
-            break-inside: avoid;
-            border: 1px solid rgba(157, 190, 187, 0.2);
-            background: #000;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto; 
-            display: block;
-        }
-
-        h1, p {
-            color: rgb(255, 245, 220);
-            padding-left: 15px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 900px) { #gallery-columns { column-count: 2; } }
-        @media (max-width: 600px) { #gallery-columns { column-count: 1; } }
-    </style>
-</head>
 <body>
+    <title>Terrible gallery</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="./css/gallery_thing.css">
+    <script src="./javascript/maincoon.js"></script>
+    <div class="everything">
+    <div class="center_div_drive" style="background-color: #000;">
+        <section class="topbar_section_a">
+            <h1 class="main_title" id="HEY"><a class="main_title_lnk" href="./cattext.html">HEY THERE!</a></h1>
+            <p class="center_div_drive" id="welcome_text">Welcome to... uh, this...place?</p>
+        </section>
+        <section class="topbar_section_b">
+            <a class="topbar_lg" href="index.html">HOME</a>
+            <a class="topbar_lg" href="#">THING</a> 
+            <a class="topbar_lg" href="rain.html">RANDOM</a>
+            <a class="topbar_lg" href="boringaboutpage.html">ABOUT+CONTACT</a>
+        </section>
+    </div>
 
-    <h1>Some things I've made</h1>
-    <p>Also, you're stuck here now. Yeah.</p>
+   
 
-    <div id="gallery-columns">
-        <div class="gallery-item">
-            <img src="./art/chb.png" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/burningbuilding2.png" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/at-the-end.png" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/bowsers-revenge.jpg" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/harrier.jpg" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/perfect.jpg" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/stv.jpg" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/poster_of_an_old_project.png" alt="Art">
-        </div>
-        <div class="gallery-item">
-            <img src="./art/cat_mouse_research.jpg" alt="Art">
+
+    <h1 class="text_thingamabob_m">SOME THINGS I'VE MADE</h1>
+    <div class="text_loopy_container">
+        <div class="text_loopy_track"> <!-- this is very ugly-->
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!  WELCOME TO THE ART GALLERY THINGGGG!!</span>
+        </div>   
+    </div>
+
+    <!-- you know I should be better than naming my classes like straight bullshit-->
+    <!-- I mean at least I don't do it on my other projects-->
+
+    <div id="gallery-section">
+        <div id="gallery-columns">
+            <div class="gallery-item">
+                <img src="./images/chb.png" alt="Art">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/burningbuilding2.png">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/at-the-end.png">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/bowsers-revenge.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/harrier.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/perfect.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/stv.jpg">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/poster_of_an_old_project.png">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/cat_mouse_research.jpg">
+            </div>
         </div>
     </div>
-</body>
-</html>
+
+    <h1 class="text_thingamabob_m">SOME THINGS I'VE MADE PART II</h1>
+    <h2 class="text_thingamabob_m2">TECHNICALLY I'M STILL WORKING ON SOME OF THESE,  BUT IT DOESN'T REALLY MATTER</h2>
+    <div class="text_loopy_container">
+        <div class="text_loopy_track"> <!-- this is very ugly-->
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+            <span class="text_loopy_thing_nm">YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!  YOU'VE HAD ENOUUGH OF THE ART GALLLEY?!!!  WELCOME TO THE PROJECT GALLERY THINGGGG!!</span>
+        </div>   
+    </div>
+
+    <div class="project_gallery_everything">
+    <div class="project_gallery_content">
+        <section>
+            <img src="./images/irst_irst_irst_irst_irst_irst_irst_irst.png">
+            <div class="gallery_content_text">
+                <h1>IRST</h1>
+                <p>
+                    Worst thing I've ever made. Apparently, this was pretty much my answer to tamagotchis but
+                    I went a little overboard and added a lot of features like the 2000+ line
+                    dialogue bank that contains handwritten dialogue about if it's being shaken,
+                    the current temperature, and the regular stuff, like dehydration, getting cancer, and realizing 
+                    you're in a fake reality in a fake world and eventually going crazy.
+                    It runs on this sony watchman fd-230 and a raspberry pi zero 2w.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <img src="./images/uwa.png">
+            <div class="gallery_content_text">
+                <h1>This website</h1>
+                <p>
+                    Yeah that kinda needs no introduction, since, well... <br>
+                    You're already here. Well, I guess I could tell more about it. <br>
+                    But I don't want to, so until then, this is all you're gonna get.
+                </p>
+            </div>
+        </section>
+
+
+        <section>
+            <img src="./images/cat_flavored_cologne.png">
+            <div class="gallery_content_text">
+                <h1>Super secret project</h1>
+                <p>
+                    Well, I probably shouldn't tell you.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <img src="./images/irst_irst_irst_irst_irst_irst_irst_irst_worldview_module.png">
+            <div class="gallery_content_text">
+                <h1>Project that went nowhere</h1>
+                <p>
+                    IRST's peek module. A lens of the world inside the machine. I feel like it deserves to be here (unlike the original IRST project, yuck.)
+                </p>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    <!-- ALRIGHT THIS IS WHERE IT ENDS-->
+
+    <footer class="the_footer_tm">
+        <div class="the_footer_content_tm">
+            <section class="the_footer_section_tm">
+                <p>Very true</p>
+                <p>Goodbye.</p>
+                <p>For we, the ones living in this world must work our way to the Rasrikosher.</p>
+                <p>10.12.2024</p>
+            </section>
+        </div>
+    </footer>
+    </body>

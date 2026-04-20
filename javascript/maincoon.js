@@ -38,7 +38,7 @@ const color_bank = [
 ]
 
 function playMEEEEE() {
-    var audio = new Audio('./Project_68.mp3');
+    var audio = new Audio('./audio/Project_68.mp3');
     audio.play();
 }
 

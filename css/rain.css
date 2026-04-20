@@ -1,0 +1,151 @@
+@keyframes rain {
+    0% {
+        transform: translate(0);
+        rotate: 30deg;
+    }
+ 
+    20% {
+        transform: translate(50px, 25vh);
+        rotate: 35deg;
+    }
+    
+    40% {
+        transform: translate(150px, 50vh);
+        rotate: 25deg;
+    }
+
+    60% {
+        transform: translate(50px, 75vh);
+        rotate: 35deg;
+    }
+
+    80% {
+        transform: translate(150px,100vh);
+        rotate: 25deg;
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 125vh);
+        rotate: 30deg;
+    }
+}
+html, body{
+    height:100vh;
+    width: 100vw;
+    background-color: gray;
+    background-image: url('../images/strange_background.png');
+    overflow: hidden;
+    touch-action: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+}
+.rain {
+    animation: forwards rain 3s ease-in-out;
+    rotate: 30deg;
+    height: 25vmin;
+    width: 25vmin;
+    /* padding: 2%; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    /* margin-left: 200px; */
+    border: 1px black solid;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.rain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.rain p {
+    font-size: 0.9rem;
+    text-align: center;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 5px;
+}
+
+#score {
+    position: fixed;
+    font-family: 'Parkinsans', sans-serif;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+}
+
+#best-score {
+    position: fixed;
+    font-family: 'Parkinsans', sans-serif;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+}
+
+#home {
+    position: fixed;
+    font-family: 'Parkinsans', sans-serif;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#home:hover {
+    background-image: url('../highlight_weeird.gif');
+    animation: shaking 0.2s infinite alternate;
+}
+
+#volume {
+    background-color: black;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#sfxvolume {
+    background-color: black;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+}
+
+@keyframes shaking { /* 0.2s infinite alternate */
+        0%, 100% {
+        transform: translateX(-50%);
+        }
+        20% {
+        transform: translateX(-50%) translate(-1px, 1px);
+        }
+        40% {
+        transform: translateX(-50%) translate(1px, -1px);
+        }
+        60% {
+        transform: translateX(-50%) translate(-2px, 1px);
+        }
+        80% {
+        transform: translateX(-50%) translate(2px, -3px);
+    }
+}

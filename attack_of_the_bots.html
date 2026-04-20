@@ -6,20 +6,20 @@
     </div>
     <div class="cat">
         <p id="op_text">
-            So, what's this? That's probably what you're asking right now. <br>
-            I have no idea, to be quite honest with you. I don't even know why you're here... <br>
-            Well since we're in this situation...<br>
-            Go ahead and browse around. This place does seem quite weird.
+            WAIT HOW DID YOU GET HERE??? <br>
+            YOUR'RE KINDA TRAPPED MY GUY <br>
+            THE THING IS CLOSED TO ANY PART OF THE WEBSITE<br>
+            TO KEEEP THIS FALSE CAT THING FROM ESCAPING<br>
         </p>
         <p id="op_text">
-            Go on ahead. Nothing more to see here.
+            I NEED YOU TO GO BACK TO MAIN WITHOUT TOUCHING ANYTHING ELSE!!
         </p>
     
 
     </div>
     
-    <img src="./yeah.jpg" class="actualcat">
-    <h3 class="textguy actualcat" id="actuallyactually">aa</h3>
+    <img src="./yeah.jpg" class="actualcat" onclick="touchme()">
+    <h3 class="textguy actualcat" id="actuallyactually" onclick="touchme()">aa</h3>
 
     <div class="cat">
         <p id="goodguy">HUUUH!?!?!?!</p>
@@ -106,7 +106,39 @@
 
     body {
         background-color: var(--main_bg_color);
+        background-image: url("images/strange_background2.png");
+        animation: bg 2s infinite both;
         margin: 0;
+    }
+
+
+    @keyframes bg {
+        20% {
+            background-position-x: 0px;
+            background-position-y: 0px;
+            background-size: 11%;
+        }
+        40% {
+            background-position-x: 500px;
+            background-position-y: 200px;
+            background-size: 5%;
+        }
+        60% {
+            background-position-x: 1000px;
+            background-position-y: 400px;
+            background-size: 2%;
+        }
+        80% {
+            background-position-x: 3000px;
+            background-position-y: 600px;
+            background-size: 5%;
+        }
+        100% {
+            background-position-x: 0px;
+            background-position-y: 0px;
+            background-size: 11%;
+        }
+            
     }
 
     .actualcat  {
@@ -326,9 +358,15 @@
     ]
 
     function playMEEEEE() {
-        var audio = new Audio('./Project_68.mp3');
+        var audio = new Audio('./audio/Project_68.mp3');
         audio.play();
     }
+
+    function touchme() {
+        var audio = new Audio('./audio/evil_meow.mp3');
+        audio.play();
+    }
+
 
     function delay(duration) {
         return new Promise(resolve => setTimeout(resolve, duration));

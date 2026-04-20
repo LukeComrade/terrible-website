@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+:root {
+    --main_bg_color: #031926;
+    --secondary_color: #9DBEBB;
+
+    --main_text_color_rg: #9DBEBB;
+    --main_text_bgw: #031926;
+    --main_text_bgb: #F4E9CD;
+    --main_text_background_b: #F4E9CD;
+    --main_text_background_w: #031926;
+    --nm_bg_color: #283a4a;
+    --mm_bg_color: #242e3a;
+    --footer_height: 300px;
+}
+
+.everything {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    /* min-height: calc(100vh - var(--footer_height)); */
+}
+
+.topbar_lg {
+    font-family: Parkinsans;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.topbar_lg:hover {
+    color: #9DBEBB;
+}
+
+.main_title_lnk {
+    color: white;
+    text-decoration: none;
+}    
+
+body {
+    background-color: var(--main_bg_color);
+    background-image: url(../images/strange_background.png);
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    background-size: 10%;
+    margin: 0;
+}
+
+.topbar_section_a {
+    max-width: fit-content;
+    align-items:start;
+    left: 0%;
+    margin-left: 5%;
+}
+
+.topbar_section_b {
+    max-width: fit-content;
+    width: fit-content;
+    position:absolute;
+    right: 0%;
+    padding-right: 5%;
+    
+}
+
+.center_div_drive {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+}
+
+.main_title {
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg);
+    max-width: fit-content;
+}
+
+.main_title:hover {
+    background: url("highlight_weeird.gif");
+    background-size:contain;
+    color: white;
+    text-shadow:  0px 0px 5px var(--main_bg_color);
+    image-rendering: pixelated;
+}
+
+#op_text {
+    color: var(--main_text_bgw);
+    background-color: var(--main_text_background_b);
+    margin: 32px;
+    margin-right: 50%;
+    padding: 20px;
+}
+
+@keyframes shaking { /* 0.2s infinite alternate */
+    0%, 100% {
+    transform: translate(0);
+    }
+    20% {
+    transform: translate(-1px, 1px);
+    }
+    40% {
+    transform: translate(1px, -1px);
+    }
+    60% {
+    transform: translate(-2px, 1px);
+    }
+    80% {
+    transform: translate(2px, -3px);
+}
+}
+
+.playsomething {
+    position: relative;
+    margin-left: 20px;
+    animation: shaking 0.2s infinite alternate;
+}
+
+#op_text2 {
+    font-family: Sankofa Display;
+    color: var(--main_text_bgw);
+    background-color: var(--main_text_background_b);
+    margin: 32px;
+    margin-right: 45%;
+    margin-left: 70px;
+    padding: 20px;
+    rotate: 5deg;
+}
+
+p {
+    display: flex;
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg);
+}
+
+.the_footer_content_tm {
+    padding: 48px 24px;
+    max-width: 100%;    
+    position: relative;
+}
+
+.the_footer_tm {
+    /* position: fixed; */
+    height: var(--footer_height);
+    bottom: 0;
+    background: #000;
+    clear: both;
+    color: #fff;
+    margin: 0;
+    padding-top: 24px;
+    width: 100%;
+}
+
+.the_footer_section_tm {
+    padding: 0 24px 0 0;
+}
+
+#gallery-section {
+    padding: 24px 24px;
+    margin-bottom: 5%;
+}
+
+#gallery-columns {
+    column-count: 5;
+    column-gap: 15px;
+    width: 100%;
+}
+
+.gallery-item {
+    display: block;
+    margin-bottom: 15px;
+    break-inside: avoid;
+    border: 1px solid rgba(157, 190, 187, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    background: #000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto; 
+    display: block;
+}
+
+.text_thingamabob_m {
+    display: flex;
+    font-family:'Times New Roman', Times, serif;
+    justify-content: center;
+    align-items: center;
+    text-justify: auto;
+    color: var(--main_text_bgw);
+    font-size: 50PX;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: var(--main_text_background_b);
+}
+
+.text_thingamabob_m2 {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    font-family: Parkinsans;
+    justify-content: center;
+    align-items: center;
+    text-justify: auto;
+    color: rgb(216, 216, 133);
+    font-size: 20PX;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: #000;
+}
+
+@media (max-width: 900px) { #gallery-columns { column-count: 2; } }
+@media (max-width: 600px) { #gallery-columns { column-count: 1; } }
+
+
+.text_loopy_container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text_loopy_track {
+  display: inline-block;
+  width: 100%;
+  animation: scroll 15s linear infinite;
+}
+
+.text_loopy_thing_nm {
+    font-family: Parkinsans;
+    color: var(--main_text_background_b);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.project_gallery_content {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.project_gallery_content>section {
+    /* min-height: 60vh; */
+    height: auto;
+    padding: 5%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--mm_bg_color);
+    background-image: url("../images/strange_background.png");
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    background-size: 10%;
+
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.project_gallery_everything {
+    font-family: Parkinsans;
+    margin: 0;
+    width: 100%;
+}
+
+.project_gallery_content>section:nth-child(2), .project_gallery_content>section:nth-child(4){
+    background-color: var(--nm_bg_color);
+    background-image: url("../images/strange_background2.png");
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    background-size: 10%;
+
+    box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.project_gallery_content>section>img {
+    max-width: 100%;
+    padding: 2px;
+    background-color: wheat;
+    box-shadow:  0px 5px 20px #000;
+}
+
+.gallery_content_text {
+    font-size: large;
+    padding: 5%;
+    text-align: center;
+    width: 90%;
+}
+
+.gallery_content_text>h1 {
+    justify-content: left;
+    align-items: left;
+    align-self: left;
+    text-align: left;
+    text-wrap: pretty;
+    font-family: Parkinsans;
+    color: var(--main_text_bgb)
+}
+
+.gallery_content_text>p {
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg)
+}
+
+/* wow I can't believe this works */
+@media (min-width: 900px) {
+    .project_gallery_content > section {
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .project_gallery_content > section > img {
+        max-width: 50%;
+        width: auto;
+    }
+
+    .gallery_content_text {
+        width: 40%;
+        text-align: left;
+    }
+}

@@ -2,6 +2,7 @@
 <body>
     <title>About This Thing</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="./javascript/maincoon.js"></script>
     <div class="everything">
     <div class="center_div_drive" style="background-color: #000;">
         <section class="topbar_section_a">
@@ -10,7 +11,7 @@
         </section>
         <section class="topbar_section_b">
             <a class="topbar_lg" href="index.html">HOME</a>
-            <a class="topbar_lg" href="gallery_thing.html">ART</a> 
+            <a class="topbar_lg" href="gallery_thing.html">THING</a> 
             <a class="topbar_lg" href="rain.html">RANDOM</a>
             <a class="topbar_lg" href="#">ABOUT+CONTACT</a>
         </section>
@@ -18,9 +19,9 @@
 
     <div class="cat">
         <p id="op_text">
-            Hello! Feel free to contact me about anything, whether it's to say hello or to <br>
+            Hello! Feel free to tell me with just about anything, whether it's to say hello or to <br>
             commission something, I don't mind. PS. If you find the hidden rom file somewhere <br>
-            I'll give you 20 dollars.
+            I'll give you 20 dollars. (It's not here)
             <br>
             <br>
             <br>
@@ -86,6 +87,11 @@
 
     body {
         background-color: var(--main_bg_color);
+        background-image: url(./images/strange_background.png);
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        image-rendering: -moz-crisp-edges;
+        background-size: 10%;
         margin: 0;
     }
 
@@ -182,7 +188,7 @@
     }
 
     .the_footer_tm {
-        /* position: fixed; */
+        position: fixed;
         height: var(--footer_height);
         bottom: 0;
         background: #000;

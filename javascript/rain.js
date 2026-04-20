@@ -165,15 +165,22 @@ function on_ready() {
     // mus
     bgMusic = document.createElement("audio");
     bgMusic.src = "./audio/project_78.mp3";
-    bgMusic.loop = true;
-    bgMusic.muted = true;
-    bgMusic.autoplay = true;
     bgMusic.style.display = "none";
+    bgMusic.loop = true;
+    bgMusic.volume = musvol;
     document.body.appendChild(bgMusic);
     
-    document.addEventListener("click", () => {
-        bgMusic.muted = false;
-    }, { once: true });
+
+    const startMusic = () => {
+        bgMusic.play().then(() => {
+            console.log("STARETAIF");
+        }).catch(error => {
+            console.log("OH NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO:", error);
+        });
+    };
+
+    document.addEventListener("click", startMusic, { once: true });
+    document.addEventListener("touchend", startMusic, { once: true });
 }
 
 function death() {

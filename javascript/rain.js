@@ -50,6 +50,7 @@ let current_score = 0;
 let best_score = 0;
 let bgMusic;
 let sfxvol = 0.5;
+let musvol = 0.5;
 
 setInterval(() => {
     let type = Math.floor(Math.random() * options.length)
@@ -197,6 +198,7 @@ function onhome() {
 
 function onChangeVol(value) {
     bgMusic.volume = value;
+    musvol = value;
 }
 
 function onChangeSFXVol(value) {

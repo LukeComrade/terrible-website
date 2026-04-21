@@ -308,12 +308,14 @@ p {
     text-align: left;
     text-wrap: pretty;
     font-family: Parkinsans;
-    color: var(--main_text_bgb)
+    color: var(--main_text_bgb);
+    text-shadow:  0px 5px 20px var(--main_bg_color)
 }
 
 .gallery_content_text>p {
     font-family: Parkinsans;
-    color: var(--main_text_color_rg)
+    color: var(--main_text_color_rg);
+    text-shadow:  0px 5px 10px #000;
 }
 
 /* wow I can't believe this works */

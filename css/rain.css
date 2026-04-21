@@ -41,6 +41,8 @@ html, body{
     position: fixed;
     margin: 0;
     padding: 0;
+    user-select: none;
+    -moz-user-select: none;
 }
 .rain {
     animation: forwards rain 3s ease-in-out;

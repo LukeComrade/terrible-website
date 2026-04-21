@@ -58,9 +58,9 @@ setInterval(() => {
     let parent = document.createElement("div");
     let newElement = document.createElement(create.type ?? "p")
 
-    newElement.userSelect = "none";
-    newElement.webkitUserSelect = "none";
-    newElement.mozUserSelect = "none";
+    newElement.style.userSelect = "none";
+    newElement.style.webkitUserSelect = "none";
+    newElement.style.mozUserSelect = "none";
 
     parent.dataset.itemPath = create.path;
     parent.dataset.itemType = create.type ?? "p";

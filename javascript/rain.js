@@ -28,15 +28,15 @@ const messages = [
 ]
 const files = [
     { path: "./yeah.jpg", type: "img" },
-    { path: "./images/chb.png", type: "img" },
-    { path: "./images/burningbuilding2.png", type: "img" },
-    { path: "./images/at-the-end.png", type: "img" },
-    { path: "./images/bowsers-revenge.jpg", type: "img" },
-    { path: "./images/harrier.jpg", type: "img" },
-    { path: "./images/perfect.jpg", type: "img" },
-    { path: "./images/stv.jpg", type: "img" },
-    { path: "./images/poster_of_an_old_project.png", type: "img" },
-    { path: "./images/cat_mouse_research.jpg", type: "img" },
+    { path: "./images/thumb/chb.png", type: "img" },
+    { path: "./images/thumb/burningbuilding2.png", type: "img" },
+    { path: "./images/thumb/at-the-end.png", type: "img" },
+    { path: "./images/thumb/bowsers-revenge.jpg", type: "img" },
+    { path: "./images/thumb/harrier.jpg", type: "img" },
+    { path: "./images/thumb/perfect.jpg", type: "img" },
+    { path: "./images/thumb/stv.jpg", type: "img" },
+    { path: "./images/thumb/poster_of_an_old_project.png", type: "img" },
+    { path: "./images/thumb/cat_mouse_research.jpg", type: "img" },
     { path: "./images/bomb1.png", type: "img" }
 ]
 

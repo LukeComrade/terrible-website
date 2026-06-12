@@ -74,6 +74,8 @@ function handleElementClick(event) {
     audio.addEventListener("ended", () => {
         audio.remove();
     });
+
+    shakescreen();
     
     document.body.append(audio);
     parent.remove();
@@ -91,6 +93,13 @@ function handleElementClick(event) {
     }
 
     scoreDisplay.textContent = `Score: ${current_score}`;
+}
+
+function shakescreen() {
+    document.body.style.animation = 'none';
+    setTimeout(() => {
+        document.body.style.animation = 'subtle_shake 1s';
+    }, 10);
 }
 
 setInterval(() => {
@@ -198,6 +207,15 @@ function death() {
     current_score = 0;
     bestScoreDisplay.textContent = `Best Score: ${best_score}`;
     scoreDisplay.textContent = `Score: ${current_score}`;
+    
+    document.body.style.animation = 'none';
+    setTimeout(() => {
+        document.body.style.animation = 'shake 0.2s';
+    }, 10);
+    
+    setTimeout(() => {
+        document.body.style.animation = 'none';
+    }, 610);
 }
 
 function onhome() {

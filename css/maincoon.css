@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+:root {
+    --main_bg_color: #031926;
+    --secondary_color: #9DBEBB;
+
+    --main_text_color_rg: #9DBEBB;
+    --main_text_bgw: #031926;
+    --main_text_bgb: #F4E9CD;
+    --main_text_background_b: #F4E9CD;
+    --main_text_background_w: #031926;
+    --footer_height: 300px;
+}
+
+.everything {
+    scrollbar-width: none; 
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    /* min-height: calc(100vh - var(--footer_height)); genuinely what was this for*/
+}
+
+.topbar_lg {
+    font-family: Parkinsans;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.topbar_lg:hover {
+    color: #9DBEBB;
+}
+
+.main_title_lnk {
+    color: white;
+    text-decoration: none;
+}    
+
+.dogcat_petting_machine {
+    width: 400px;
+    height: 400px;
+    margin: 50px;
+    margin-right: 70px;
+    float: right;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+    background-image: url("../images/checkered.png");
+    background-size: 50%;
+    display: grid;
+    place-items: center;
+    outline: 2px solid var(--secondary_color);
+    animation: dogcat_petting_machine_background_a 5s linear infinite;
+    user-select: none;
+    background-repeat: repeat;
+}
+
+.dog_cat_viewport_wait_huhuh[data-animation="crazy_clicky"] {
+    animation: shaking 0.2s infinite alternate, dogcat_petting_machine_background_a 5s linear infinite;
+}
+
+.dog_cat_viewport_wait_huhuh {
+    width: 95%;
+    height: 95%; 
+    object-fit: contain;
+    cursor: pointer;
+    touch-action: manipulation;
+    /* width: 50%; */
+    user-select: none;
+    margin: 0 auto;
+}
+
+.dogcat_petting_machine_titlebar {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main_text_background_b);
+    touch-action: manipulation;
+    height: fit-content;
+    justify-content: space-between;
+}
+
+.dogcat_petting_machine_titlebar p {
+    text-align: center;
+    padding-left: 15px;
+    color: var(--main_text_bgw);
+}
+
+.dogcat_petting_machine_titlebar button {
+    text-align: center;
+    padding: 25px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    width: auto;
+    background-color: var(--secondary_color);
+    border: none;
+    color: var(--main_text_bgw);
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+@media (pointer: coarse) {
+    .dogcat_petting_machine {
+        width: 500px; 
+        height: 500px; 
+    }
+}
+
+.dogcat_petting_machine_titlebar button:hover {
+    animation: tocatdogbutton_hover 0.2s forwards;
+}
+
+@keyframes tocatdogbutton_hover {
+    0% {
+    transform: scale(1,1);
+    }
+    100% {
+    transform: scale(1.2,1.2);
+    }
+}
+    
+
+.dogcat_petting_machine_titlebar button[data-state="to-cat"] {
+    background-image: url("../images/dog_cat_petting_machine_switch2cat.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.dogcat_petting_machine_titlebar button[data-state="to-dog"] {
+    background-image: url("../images/dog_cat_petting_machine_switch2dog.png");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-color: var(--main_bg_color);
+    background-image: url("../images/strange_background.png");
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    background-size: 10%;
+    margin: 0;
+}
+
+.topbar_section_a {
+    max-width: fit-content;
+    align-items:start;
+    left: 0%;
+    margin-left: 5%;
+}
+
+.topbar_section_b {
+    max-width: fit-content;
+    width: fit-content;
+    position:absolute;
+    right: 0%;
+    padding-right: 5%;
+    
+}
+
+.center_div_drive {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+}
+
+.main_title {
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg);
+    max-width: fit-content;
+}
+
+.main_title:hover {
+    background: url("../images/highlight_weeird.gif");
+    background-size:contain;
+    color: white;
+    text-shadow:  0px 0px 5px var(--main_bg_color);
+    image-rendering: pixelated;
+}
+
+#op_text {
+    color: var(--main_text_bgw);
+    background-color: var(--main_text_background_b);
+    margin: 32px;
+    margin-right: 50%;
+    padding: 20px;
+}
+
+@keyframes shaking { /* 0.2s infinite alternate */
+    0%, 100% {
+    transform: translate(0);
+    }
+    20% {
+    transform: translate(-1px, 1px);
+    }
+    40% {
+    transform: translate(1px, -1px);
+    }
+    60% {
+    transform: translate(-2px, 1px);
+    }
+    80% {
+    transform: translate(2px, -3px);
+}
+}
+
+@keyframes dogcat_petting_machine_background_a { /* 0.2s infinite alternate */
+    0% {
+    background-position-x: 0;
+    }
+    100% {
+    background-position-x: -100%;
+    }
+}
+
+.playsomething {
+    position: relative;
+    rotate: 5deg;
+    scale: 120%;
+    margin-left: 20px;
+    animation: shaking 0.2s infinite alternate;
+}
+
+#op_text2 {
+    color: var(--main_text_bgw);
+    background-color: var(--main_text_background_b);
+    margin: 32px;
+    margin-right: 45%;
+    margin-left: 70px;
+    padding: 20px;
+    rotate: 5deg;
+}
+
+p {
+    display: flex;
+    font-family: Parkinsans;
+    color: var(--main_text_color_rg);
+}
+
+.the_footer_content_tm {
+    padding: 48px 24px;
+    max-width: 100%;    
+    position: relative;
+}
+
+.the_footer_tm {
+    /* position: fixed; */
+    height: var(--footer_height);
+    bottom: 0;
+    background: #000;
+    clear: both;
+    color: #fff;
+    margin: 0;
+    padding-top: 24px;
+    width: 100%;
+}
+
+
+.the_footer_section_tm {
+    padding: 0 24px 0 0;
+}

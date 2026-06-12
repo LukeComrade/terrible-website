@@ -27,7 +27,7 @@ const messages = [
     "What am I supposed to do here."
 ]
 const files = [
-    { path: "./yeah.jpg", type: "img" },
+    { path: "./images/yeah.jpg", type: "img" },
     { path: "./images/thumb/chb.png", type: "img" },
     { path: "./images/thumb/burningbuilding2.png", type: "img" },
     { path: "./images/thumb/at-the-end.png", type: "img" },

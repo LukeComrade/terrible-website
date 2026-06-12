@@ -42,6 +42,11 @@ const files = [
 
 const options = [messages, files]
 
+const music_bank = [
+    "./audio/rainbg_windows.ogg",
+    "./audio/rainbg_pillars.ogg",
+]
+
 const color_bank = [
     "#da9240", "#bbcc5d", "#4fcf98", "#42b6d6", "#3a6cd8", "#db6bd1", "#dd6767",
 ]
@@ -49,14 +54,50 @@ const color_bank = [
 let current_score = 0;
 let best_score = 0;
 let bgMusic;
-let sfxvol = 0.5;
+let sfxvol = 0.3;
 let musvol = 0.5;
+let scoreDisplay;
+let bestScoreDisplay;
+
+// get random from array yaye wow
+function getRandomFrom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+
+function handleElementClick(event) {
+    const parent = event.currentTarget;
+    const audio = document.createElement("audio");
+    audio.src = "./audio/explosion.ogg";
+    audio.autoplay = true;
+    audio.volume = sfxvol;
+    audio.addEventListener("ended", () => {
+        audio.remove();
+    });
+    
+    document.body.append(audio);
+    parent.remove();
+
+    if (parent.dataset.itemPath.includes("bomb")) {
+        death();
+    } else {
+        current_score += 1;
+    }
+
+    if (current_score > best_score) {
+        best_score = current_score;
+        setCookie("best_score", best_score);
+        bestScoreDisplay.textContent = `Best Score: ${best_score}`;
+    }
+
+    scoreDisplay.textContent = `Score: ${current_score}`;
+}
 
 setInterval(() => {
-    let type = Math.floor(Math.random() * options.length)
-    let create = options[type][Math.floor(Math.random() * options[type].length)]
+    let type = Math.floor(Math.random() * options.length);
+    let create = getRandomFrom(options[type]);
     let parent = document.createElement("div");
-    let newElement = document.createElement(create.type ?? "p")
+    let newElement = document.createElement(create.type ?? "p");
 
     newElement.style.userSelect = "none";
     newElement.style.webkitUserSelect = "none";
@@ -65,12 +106,12 @@ setInterval(() => {
     parent.dataset.itemPath = create.path;
     parent.dataset.itemType = create.type ?? "p";
 
-
     if (create.type == "audio") {
-        newElement.setAttribute("controls", "")
+        newElement.setAttribute("controls", "");
     }
-    parent.append(newElement)
-    let left = (Math.random() * document.body.clientWidth);
+    parent.append(newElement);
+    let left = Math.random() * document.body.clientWidth;
+    
     if (create.type == "img") { 
         newElement.src = create.path;
         newElement.draggable = false;
@@ -80,71 +121,35 @@ setInterval(() => {
         newElement.style.backgroundColor = color_bank[Math.floor(Math.random() * color_bank.length)];
         newElement.textContent = messages[Math.floor(Math.random() * messages.length)];
     }
-    document.body.append(parent)
+    
+    document.body.append(parent);
     parent.classList.add("rain");
     parent.style.left = left + 'px';
+    
     setTimeout(() => {
         parent.remove();
     }, 8500);
 
-    const handleClick = () => {
-        const audio = document.createElement("audio")
-        audio.src = "./audio/explosion.mp3"
-        audio.setAttribute("autoplay", "")
-        audio.volume = sfxvol;
-        audio.addEventListener("ended", () => {
-            audio.remove();
-        });
-        
-        document.body.append(audio)
-        parent.remove()
-
-        if (parent.dataset.itemPath.includes("bomb")) {
-            death();
-        } else {
-            current_score += 1;
-        }
-
-        if (current_score > best_score) {
-            // const oldBest = best_score;
-            best_score = current_score;
-            setCookie("best_score", best_score);
-            document.getElementById("best-score").textContent = `Best Score: ${best_score}`;
-        }
-
-        document.getElementById("score").textContent = `Score: ${current_score}`;
-    };
-
-    parent.addEventListener("click", handleClick);
-    parent.addEventListener("touchend", handleClick);
+    parent.addEventListener("click", handleElementClick);
+    parent.addEventListener("touchend", handleElementClick);
 }, 600);
 
+function getRandomBGTrack() {
+    const track = music_bank[Math.floor(Math.random() * music_bank.length)];
+    return track;
+}
+
 function getCookie(name) {
+    const nameEQ = name + "=";
     const cookies = document.cookie.split(";");
-    let highestValue = null;
-    let duplicates = [];
     
     for (let cookie of cookies) {
-        const [key, value] = cookie.trim().split("=");
-        if (key === name) {
-            const decodedValue = decodeURIComponent(value);
-            const numValue = parseInt(decodedValue);
-            
-            if (!isNaN(numValue)) {
-                duplicates.push(numValue);
-                if (highestValue === null || numValue > highestValue) {
-                    highestValue = numValue;
-                }
-            }
+        cookie = cookie.trim();
+        if (cookie.startsWith(nameEQ)) {
+            return decodeURIComponent(cookie.substring(nameEQ.length));
         }
     }
-    
-    // check dup
-    if (duplicates.length > 1) {
-        setCookie(name, highestValue);
-    }
-    
-    return highestValue !== null ? highestValue.toString() : null;
+    return null;
 }
 
 function setCookie(name, value) {
@@ -156,22 +161,25 @@ function setCookie(name, value) {
 }
 
 function on_ready() {
+    // Cache DOM elements
+    scoreDisplay = document.getElementById("score");
+    bestScoreDisplay = document.getElementById("best-score");
+    
     let savedScore = getCookie("best_score");
     if (savedScore !== null && !isNaN(savedScore)) {
         best_score = parseInt(savedScore);
         console.log("Loaded best_score from cookie:", best_score);
     }
-    document.getElementById("best-score").textContent = `Best Score: ${best_score}`;
+    bestScoreDisplay.textContent = `Best Score: ${best_score}`;
     
     // mus
     bgMusic = document.createElement("audio");
-    bgMusic.src = "./audio/Project_78.mp3";
+    bgMusic.src = getRandomBGTrack();
     bgMusic.style.display = "none";
     bgMusic.loop = true;
     bgMusic.volume = musvol;
     document.body.appendChild(bgMusic);
     
-
     const startMusic = () => {
         bgMusic.play().then(() => {
             console.log("STARETAIF");
@@ -188,8 +196,8 @@ function death() {
     best_score = Math.max(best_score, current_score);
     setCookie("best_score", best_score);
     current_score = 0;
-    document.getElementById("best-score").textContent = `Best Score: ${best_score}`;
-    document.getElementById("score").textContent = `Score: ${current_score}`;
+    bestScoreDisplay.textContent = `Best Score: ${best_score}`;
+    scoreDisplay.textContent = `Score: ${current_score}`;
 }
 
 function onhome() {

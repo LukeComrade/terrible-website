@@ -24,7 +24,8 @@
     </div>
 
     <div style="display: flex;
-        height: 800px;
+        height: 78vh;
+        max-height: 1000px;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -47,12 +48,17 @@
             In a few, they'll think, "who the hell wrote this rubbish?", and you'll then run away to some place in florida <br>
             and sing some boring pop song from another sequel of a movie that should've been KILLED 10 years ago. <br>
         </p>
+
         <p id="op_text">
             Okay, this time, there's nothing more to see... except.... <br>
             hold on, he's here.
         </p>
-    
 
+        <div class="dogcat_petting_machine">
+            <img src="images/ultra_crazy_dog_with_INSANE_magic_powers_breathing.gif" class="dog_cat_viewport_wait_huhuh" onclick="dogcat_petting_machine_clicky()">
+            <p>DOG PETTING MACHINE™</p>
+        </div>
+        
     </div>
     <div class="cat">
         <p id="op_text2">
@@ -120,6 +126,24 @@
         color: white;
         text-decoration: none;
     }    
+
+    .dogcat_petting_machine {
+        width: 300px;
+        height: 300px;
+        margin: 50px;
+        margin-right: 70px;
+        float: right;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+        /* background-color: var(--main_text_bgb); */
+    }
+
+    .dog_cat_viewport_wait_huhuh {
+        width: 95%;
+        height: 95%; 
+        object-fit: contain;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
 
     body {
         background-color: var(--main_bg_color);

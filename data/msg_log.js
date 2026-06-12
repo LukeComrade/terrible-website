@@ -142,4 +142,14 @@ const log_bank = {
             "And don't die."
         ]
     },
+    "2": {
+        "profile_name": "6:11:2026",
+        "message_bank": [
+            "Hey there.",
+            "I just realized that I've been talking nonsense the past few times I've talked to you",
+            "To make up for that",
+            "I'm going to draw you a picture",
+            "Oh "
+        ]
+    }
 } 

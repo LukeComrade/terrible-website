@@ -2,7 +2,6 @@
 <body>
     <title>About This Thing</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="./javascript/maincoon.js"></script>
     <div class="everything">
     <div class="center_div_drive" style="background-color: #000;">
         <section class="topbar_section_a">
@@ -31,20 +30,35 @@
     <p id="op_text">
         Go on ahead. Nothing more to see here.
     </p>
+    <div class="credits_text" onclick="onclick_credits()">
+        <div class="credits_titlebar">credits thing to prove this site is for professionals</div>
+        <div id="credits_content">
+            All art and 'music' by me (yours truly) <br>
+            that useless cat, gotten from pixabay <br>
+            All programming done by me (with help from a friend when making the falling objects thingy for ./rain) <br>
+            And lastly, explosions, dog and cat sound effects are gotten from pixabay. <br>
+            Some other sound effects are made from the vst LABS or the stock sounds from a roland fp30x. <br>
+            (Also, the background of the desktop is the inside of a sony v8af camera.)
+        </div>
+    </div>
+
     </div>
 
 
     <footer class="the_footer_tm">
         <div class="the_footer_content_tm">
             <section class="the_footer_section_tm">
-                <p>Very true</p>
-                <p>Goodbye.</p>
+                <p>END PAGE (Wait this is the only updated footer? (hell yeah!))</p>
+                <p>uhuhuh? who said that?</p>
                 <p>For we, the ones living in this world must work our way to the Rasrikosher.</p>
                 <p>10.12.2024</p>
             </section>
         </div>
     </footer>
 </body>
+
+<script src="./javascript/maincoon.js"></script>
+<script src="./javascript/boringaboutpage.js"></script>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
@@ -66,7 +80,7 @@
         flex-direction: column;
         padding: 0;
         margin: 0;
-        min-height: calc(100vh - var(--footer_height));
+        min-height: auto;
     }
 
     .topbar_lg {
@@ -140,6 +154,42 @@
         padding: 20px;
     }
 
+    .credits_titlebar {
+        background-color: var(--main_text_background_b);
+        color: var(--main_bg_color);
+        padding: 10px 20px;
+        margin: -20px -20px 10px -20px;
+        /* font-size: 20px; */  
+        font-family: Parkinsans;
+    }
+
+    .credits_titlebar:hover {
+        rotate: -3deg;
+        transition: 1s;
+    }
+    
+    .credits_text {
+        color: var(--main_text_bgb);
+        background-color: #0000007a;
+        font-family: Parkinsans;
+        margin: 32px;
+        margin-right: 50%;
+        padding: 20px;
+        cursor: pointer;
+        display: block;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    #credits_content {
+        padding-top: 0;
+    }
+
+    #credits_content:hover {
+        rotate: 1deg;
+        transition: 1s;
+    }
+
     @keyframes shaking { /* 0.2s infinite alternate */
         0%, 100% {
         transform: translate(0);
@@ -188,14 +238,11 @@
     }
 
     .the_footer_tm {
-        position: fixed;
-        height: var(--footer_height);
-        bottom: 0;
+        position: static;
         background: #000;
         clear: both;
         color: #fff;
         margin: 0;
-        padding-top: 24px;
         width: 100%;
     }
     

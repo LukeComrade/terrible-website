@@ -6,6 +6,7 @@ let message_bank = []
 let latest_key = "0"
 let current_key = "0";
 let current_message_index = 0;
+let no_moar_isaidit = false;
 // const msg_log_data_url = './data/msg_log.js';
 
 function on_ready() {
@@ -57,8 +58,10 @@ function display_new_message() {
     if (current_message_index < message_bank.length) {
         displayMessage(message_bank[current_message_index]);
         current_message_index += 1;
-    } else {
+        no_moar_isaidit = false
+    } else if (!no_moar_isaidit){
         displayMessage("SYSTEM: END");
+        no_moar_isaidit = true
     }
 }
 

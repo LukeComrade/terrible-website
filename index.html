@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
-<script src="./javascript/maincoon.js"></script>
+
 <link rel="stylesheet" href="./css/maincoon.css">
+<link rel="stylesheet" href="./css/winblows.css">
 
 <body>
     <!--Ok, don't judge me on this but holy fucking shit, this is the worst code I've ever
@@ -14,7 +15,7 @@
     <div class="center_div_drive" style="background-color: #000;">
         <section class="topbar_section_a">
             <h1 class="main_title" id="HEY"><a class="main_title_lnk" href="./cattext.html">HEEEEEEEEEEY THERE!</a></h1>
-            <p class="center_div_drive" id="welcome_text">Welcome to... uh, this...place?</p>
+            <p id="welcome_text">Welcome to... uh, this...place?</p>
         </section>
         <section class="topbar_section_b">
             <a class="topbar_lg" href="#">HOME</a>
@@ -33,7 +34,46 @@
         margin-top: 20px;
         border-radius: 5px;
         box-sizing: border-box;">
-            <iframe src="something.html" style="width: 100%; height: 100%; border: none;"></iframe>
+            
+            
+            <!-- messy -->
+
+            <div id="desktop-environment">
+            <div id="taskbar">
+                <div class="taskbar-item start_me_up" onclick="play_sound('./audio/something_there.ogg')"></div>
+                <div class="taskbar-item">RANDOM BUTTON</div>
+                <div class="taskbar-item-c">
+                    <span>Current Track:</span> 
+                    <span id="current_track">None</span>
+                </div>
+                <div class="taskbar-item stop_that_awful_song" onclick="stop_that_awful_song()" track_playing="false"></div>
+                <div class="taskbar-item-d">
+                    <span>MUS</span>
+                    <input type="range" id="mus_vol" name="volume" min="0" max="1" step="0.01" value="0.5" onchange="onMusChangeVol(this.value)">
+                </div>
+                <div class="taskbar-item-d">
+                    <span>SFX</span>
+                    <input type="range" id="mus_vol" name="volume" min="0" max="1" step="0.01" value="0.3" onchange="onSfxChangeVol(this.value)">
+                </div>
+                <div class="taskbar-item taskbar-item-right" id="taskbar_time">12:45 PM</div>
+            </div>
+
+            <div id="window"> <div class="navbar">
+                    <h3>Really <i>cool</i> window that's not infringing on copyrightTM</h3> 
+                </div>
+
+                <div id="chat-window"></div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px; padding: 0 20px; box-sizing: border-box;">
+                    <button onclick="display_new_message()">CONTINUE</button>
+                    <div id="log_seldiv">
+                        <select id="log_selector" onchange="change_log()" style="width: auto; min-width: 100px;">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- end -->
     </div>
 
 
@@ -66,6 +106,15 @@
         </p>
     </div>
 
+    <div class="human_container">
+        <div class="human_container_background">
+            <img src="images/ultra_crazy_dog_with_INSANE_magic_powers_breathing.gif" class="dog_cat_viewport_wait_huhuh" onclick="dogcat_petting_machine_clicky()">
+        </div>
+        <div class="dogcat_petting_machine_titlebar">
+            <p>DON'T TOUCH ME</p>
+            <button onclick="dogcat_petting_machine_switch()" data-state="to-cat"></button>
+        </div>
+    </div>
     
     <div class="cat">
         <p id="op_text2">
@@ -93,3 +142,8 @@
         </div>
     </footer>
 </body>
+
+<script src="./data/msg_log.js"></script> 
+<script src="./javascript/chat_w.js"></script>
+<script src="./javascript/winblows.js"></script>
+<script src="./javascript/maincoon.js"></script>

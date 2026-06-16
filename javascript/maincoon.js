@@ -4,6 +4,7 @@ let sprite_timer_thingy = null;
 
 let dog_cat_current_score = 0;
 let audio_main;
+let audio_sfx;
 
 const only_reasonable_person_in_this_website = [
     "",
@@ -44,6 +45,11 @@ const color_bank_2 = [
 ]
 
 const winblows_iframe = document.getElementById("winblows_iframe");
+const taskbar_track_name = document.getElementById("current_track");
+const taskbar_stop_button = document.querySelector(".stop_that_awful_song");
+
+let mus_vol = 0.5;
+let sfx_vol = 0.3;
 
 function play_track(track) {
     if (audio_main) {
@@ -52,10 +58,52 @@ function play_track(track) {
     } else {
         audio_main = new Audio();
     }
+    audio_main.volume = mus_vol
     audio_main.src = track;
     audio_main.play();
+    taskbar_stop_button.setAttribute("track_playing", "true");
 
-    // winblows_iframe.contentWindow.postMessage({ type: "updateTrackName", trackName: track.split('/').pop() }, "*");
+    audio_main.addEventListener("ended", () => {
+        taskbar_track_name.textContent = "None";
+        taskbar_stop_button.setAttribute("track_playing", "false");
+    }, { once: false});
+
+    taskbar_track_name.textContent = track.split('/').pop();
+}
+
+function play_sound(soundfx) {
+    if (audio_sfx) {
+        audio_sfx.pause();
+        
+    } else {
+        audio_sfx = new Audio();
+    }
+    audio_sfx.volume = sfx_vol
+    audio_sfx.src = soundfx;
+    audio_sfx.play();
+}
+
+function onMusChangeVol(volume) {
+    mus_vol = volume
+    if (audio_main) {
+        audio_main.volume = mus_vol;
+    }
+}
+
+function onSfxChangeVol(volume) {
+    sfx_vol = volume
+    if (audio_sfx) {
+        audio_sfx.volume = sfx_vol;
+    }
+}
+
+function stop_that_awful_song() {
+    if (audio_main) {
+        audio_main.pause();
+        audio_main.currentTime = 0;
+    }
+    taskbar_track_name.textContent = "None";
+    taskbar_stop_button.setAttribute("track_playing", "false");
 }
 
 function playMEEEEE() {
@@ -76,7 +124,7 @@ function dogcat_petting_machine_clicky() {
 
     dog_cat_viewport_el.style.filter = `drop-shadow(0 8px 16px ${color_bank_2[[Math.floor(Math.random() * color_bank_2.length)]]})`;
     dog_cat_el.style.outline = `2px solid ${color_bank_2[[Math.floor(Math.random() * color_bank_2.length)]]}`;
-
+    
 
     if (dog_cat_current_score > 10) {
         if (audio_main == null) {
@@ -102,8 +150,10 @@ function dogcat_petting_machine_clicky() {
     
     if (button.dataset.state === "to-cat") {
         dog_cat_viewport_el.src = "images/ultra_crazy_dog_with_INSANE_magic_powers_happy.gif";
+        play_sound("./audio/bark.ogg");
     } else {
         dog_cat_viewport_el.src = "images/ultra_crazy_cat_with_INSANE_magic_powers_happy.gif";
+        play_sound("./audio/meow.ogg");
     }
     
     sprite_timer_thingy = setTimeout(function() {
@@ -126,6 +176,7 @@ function dogcat_petting_machine_switch() {
     var img = document.querySelector(".dog_cat_viewport_wait_huhuh");
     var text = document.querySelector(".dogcat_petting_machine_titlebar p");
 
+    play_sound("./audio/switcharoo.ogg")
     if (button.dataset.state === "to-cat") {
         button.dataset.state = "to-dog";
         text.textContent = "CAT PETTING MACHINE™";

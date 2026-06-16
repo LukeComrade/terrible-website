@@ -43,31 +43,34 @@
     <div id="gallery-section">
         <div id="gallery-columns">
             <div class="gallery-item">
-                <img src="./images/chb.png" alt="Art">
+                <img src="./images/chb.png" alt="Art" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/burningbuilding2.png">
+                <img src="./images/burningbuilding2.png" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/at-the-end.png">
+                <img src="./images/at-the-end.png" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/bowsers-revenge.jpg">
+                <img src="./images/bowsers-revenge.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/harrier.jpg">
+                <img src="./images/harrier.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/perfect.jpg">
+                <img src="./images/perfect.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/stv.jpg">
+                <img src="./images/stv.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/poster_of_an_old_project.png">
+                <img src="./images/poster_of_an_old_project.png" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
-                <img src="./images/cat_mouse_research.jpg">
+                <img src="./images/cat_mouse_research.jpg" onclick="fallMe(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/something_troubling_you.png" onclick="fallMe(this)">
             </div>
         </div>
     </div>
@@ -145,11 +148,33 @@
     <footer class="the_footer_tm">
         <div class="the_footer_content_tm">
             <section class="the_footer_section_tm">
-                <p>Very true</p>
-                <p>Goodbye.</p>
+                <p>You're probably wondering why I'm showing you this.</p>
+                <p>The answer is: I don't know. So yeah. We didn't get very far in this, have we?</p>
+                <p>I've just wasted your time sorry. This line of text is useless. <br> ... </p>
                 <p>For we, the ones living in this world must work our way to the Rasrikosher.</p>
                 <p>10.12.2024</p>
             </section>
         </div>
     </footer>
     </body>
+
+    <script>
+        function fallMe(imgElement) {
+            if (imgElement.hasAttribute("falling-down")) return;
+
+            let clicks = parseInt(imgElement.dataset.clicks || "0", 10);
+            clicks++; // with how long I've used godot, I completely forgot I can just do this instead of clicks+=1
+            imgElement.dataset.clicks = clicks;
+
+            imgElement.style.transform = `scale(0.98) rotate(${Math.random() * 4 - 2}deg)`;
+            setTimeout(() => {
+                if (!imgElement.hasAttribute("falling-down")) {
+                    imgElement.style.transform = '';
+                }
+            }, 100);
+
+            if (clicks >= 10) {
+                imgElement.setAttribute("falling-down", "true");
+            }
+        }
+    </script>

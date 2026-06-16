@@ -76,12 +76,20 @@
     }
 }
 
+:root {
+    --main_bg_color: #031926;
+    --secondary_color: #9DBEBB;
+    --main_text_color_rg: #9DBEBB;
+    --main_text_background_b: #F4E9CD;
+    --main_text_bgw: #031926;
+}
 
 html, body{
     height:100vh;
     width: 100vw;
-    background-color: gray;
-    background-image: url('../images/strange_background.png');
+    background-color: rgb(75, 77, 87);
+    background-image: url('../images/checkered.png');
+    background-size: 20%;
     overflow: hidden;
     touch-action: none;
     position: fixed;
@@ -89,6 +97,7 @@ html, body{
     padding: 0;
     user-select: none;
     -moz-user-select: none;
+    image-rendering: pixelated;
 }
 .rain {
     animation: forwards rain 3s ease-in-out;
@@ -135,6 +144,7 @@ html, body{
     color: white;
     background-color: black;
     padding: 5px 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 #best-score {
@@ -146,6 +156,7 @@ html, body{
     color: white;
     background-color: black;
     padding: 5px 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 #home {
@@ -163,22 +174,55 @@ html, body{
 }
 
 #home:hover {
-    background-image: url('../highlight_weeird.gif');
+    background-image: url('../images/highlight_weeird.gif');
+    background-size: 30%;
     animation: shaking 0.2s infinite alternate;
 }
 
-#volume {
-    background-color: black;
+#current_track_m {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    margin: 10px;
+    top: 10px;
+    left: 130px;
+
+    color: var(--main_text_color_rg);
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+@media (pointer: coarse) {
+    #current_track_m {
+        top: 150px;
+        left: 10px;
+    }
+}
+.volume_container_thing {
+    position: fixed;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto 1fr;
+    /* justify-content: space-between; */
+    margin: 10px;
+    top: 60px;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    color: var(--main_text_background_b);
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#volume {
+    margin-left: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 #sfxvolume {
-    background-color: black;
-    position: fixed;
+    margin-left: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    /* position: fixed;
     bottom: 50px;
-    right: 20px;
+    right: 20px; */
 }
 
 @keyframes shaking { /* 0.2s infinite alternate */
@@ -197,4 +241,79 @@ html, body{
         80% {
         transform: translateX(-50%) translate(2px, -3px);
     }
+}
+
+@keyframes scrolle { 
+    0% {
+    background-position-x: 0;
+    }
+    100% {
+    background-position-x: -100%;
+    }
+}
+
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+    outline: #9dbebb37 solid 1px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: rgba(54, 23, 23, 0.329);
+    border-radius: 0px;
+    overflow: hidden;
+    height: 20px;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: rgba(165, 64, 64, 0.2);
+    border-radius: 0px;
+    overflow: hidden;
+    height: 20px;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* margin-top: 4px;       */
+    background-color: var(--secondary_color);
+    border-radius: 0px;
+    height: 20px;
+    width: 20px;
+    box-shadow: -80px 0 0 80px #2779a862;
+    transition: 0.1s;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* margin-top: 4px;       */
+    background-color: var(--secondary_color);
+    border-radius: 0px;
+    height: 20px;
+    width: 20px;
+    transition: 0.1s;
+}
+
+
+input[type="range"]::-moz-range-progress {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: #2779a862;
+    transition: 0.1s;
+}
+
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: white;
+}
+input[type="range"]::-moz-range-thumb:hover {
+    background-color: white;
 }

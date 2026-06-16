@@ -149,7 +149,11 @@ const log_bank = {
             "I just realized that I've been talking nonsense the past few times I've talked to you",
             "To make up for that",
             "I'm going to draw you a picture",
-            "Oh "
+            "cat_named_marmalade_and_dog_named_coffee.png",
+            "testing",
+            "bomb1.png",
+            "sheep.png",
+            "There was once a dog that flew away. I never found out what happened to him, but I'd like to imagine that he reached his dream of reaching the moon."
         ]
     }
 } 

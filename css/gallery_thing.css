@@ -11,7 +11,7 @@
     --main_text_background_w: #031926;
     --nm_bg_color: #283a4a;
     --mm_bg_color: #242e3a;
-    --footer_height: 300px;
+    --footer_height: 340px;
 }
 
 .everything {
@@ -19,6 +19,7 @@
     flex-direction: column;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
     /* min-height: calc(100vh - var(--footer_height)); */
 }
 
@@ -46,6 +47,7 @@ body {
     image-rendering: -moz-crisp-edges;
     background-size: 10%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .topbar_section_a {
@@ -174,12 +176,21 @@ p {
     border: 1px solid rgba(157, 190, 187, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     background: #000;
+    touch-action: manipulation;
 }
 
 .gallery-item img {
     width: 100%;
     height: auto; 
     display: block;
+}
+
+.gallery-item img[falling-down = "true"] {
+    animation: destroy_my_work_and_fall_down 1.5s forwards ease-in;
+    pointer-events: none; /* Stops you from clicking it while it's falling */
+    position: relative;
+    user-select: none;
+    z-index: 999;
 }
 
 .text_thingamabob_m {
@@ -241,6 +252,16 @@ p {
   100% {
     transform: translateX(-100%);
   }
+}
+
+@keyframes destroy_my_work_and_fall_down {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(120vh) rotate(25deg);
+        opacity: 0;
+    }
 }
 
 .project_gallery_content {

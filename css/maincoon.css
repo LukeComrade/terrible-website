@@ -18,6 +18,7 @@
     flex-direction: column;
     padding: 0;
     margin: 0;
+    overflow: hidden;
     /* min-height: calc(100vh - var(--footer_height)); genuinely what was this for*/
 }
 
@@ -57,6 +58,7 @@
 .dog_cat_viewport_wait_huhuh[data-animation="crazy_clicky"] {
     animation: shaking 0.2s infinite alternate, dogcat_petting_machine_background_a 5s linear infinite;
 }
+
 
 .dog_cat_viewport_wait_huhuh {
     width: 95%;
@@ -103,12 +105,6 @@
     touch-action: manipulation;
 }
 
-@media (pointer: coarse) {
-    .dogcat_petting_machine {
-        width: 500px; 
-        height: 500px; 
-    }
-}
 
 .dogcat_petting_machine_titlebar button:hover {
     animation: tocatdogbutton_hover 0.2s forwards;
@@ -136,6 +132,51 @@
     background-repeat: no-repeat;
 }
 
+.human_container {
+    width: 400px;
+    height: 400px;
+    margin: 50px;
+    rotate: 10deg;
+    margin-right: 70px;
+    float: right;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    outline: 2px solid var(--secondary_color);
+    user-select: none;
+}
+
+.human_container_background {
+    width: 120%;
+    height: 120%;
+    position: absolute; 
+    /* left: 20px; */
+    background-image: url("../images/checkered.png");
+    background-repeat: repeat;
+    animation: human_container_background_a 1s linear infinite;
+    background-size: 45%;
+    rotate: 350deg;
+    object-fit: contain;
+    cursor: pointer;
+    touch-action: manipulation;
+    /* width: 50%; */
+    user-select: none;
+    margin: 0 auto;
+}
+
+.human_container_viewport {
+    width: 95%;
+    height: 95%; 
+    object-fit: contain;
+    cursor: pointer;
+    touch-action: manipulation;
+    /* width: 50%; */
+    user-select: none;
+    margin: 0 auto;
+}
+
+
 body {
     background-color: var(--main_bg_color);
     background-image: url("../images/strange_background.png");
@@ -148,7 +189,7 @@ body {
 
 .topbar_section_a {
     max-width: fit-content;
-    align-items:start;
+    align-items:center;
     left: 0%;
     margin-left: 5%;
 }
@@ -167,12 +208,16 @@ body {
     /* justify-content: center; */
     align-items: center;
     flex-direction: row;
+    max-height: 120px;
+    height: 120px;
+
 }
 
 .main_title {
     font-family: Parkinsans;
     color: var(--main_text_color_rg);
     max-width: fit-content;
+    margin: 2px;
 }
 
 .main_title:hover {
@@ -209,12 +254,21 @@ body {
 }
 }
 
-@keyframes dogcat_petting_machine_background_a { /* 0.2s infinite alternate */
+@keyframes dogcat_petting_machine_background_a { 
     0% {
     background-position-x: 0;
     }
     100% {
     background-position-x: -100%;
+    }
+}
+
+@keyframes human_container_background_a { 
+    0% {
+    background-position-x: 0;
+    }
+    100% {
+    background-position-x: -108px;
     }
 }
 
@@ -263,4 +317,38 @@ p {
 
 .the_footer_section_tm {
     padding: 0 24px 0 0;
+}
+
+@media (pointer: coarse) {
+    .dogcat_petting_machine {
+        width: 500px; 
+        height: 500px; 
+    }
+    body {
+        background-size: 25%;
+    }
+}
+
+@media (max-width: 822px) {
+    .topbar_section_b {
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+        gap: 0px;
+        /* padding-top: 10px; */
+        display: grid;
+        /* top: 80px; */
+    }
+}
+
+@media (max-width: 512px) {
+    .topbar_section_b {
+        position: relative;
+        padding: 10px;
+        margin-right: 20px;
+        gap: 0px;
+        /* padding-top: 10px; */
+        display: grid;
+        /* top: 80px; */
+    }
 }

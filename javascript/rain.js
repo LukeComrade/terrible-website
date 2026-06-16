@@ -12,9 +12,20 @@ const messages = [
     "That's funny dude",
     "I walked away from you",
     "I don't want to talk to you",
+    "You broke it again. Why do you do this to me?",
+    "I-I'll fix it. See look! All good now.",
     "What's up everybody",
     "My name is ROBERT RANDALL.",
     "An unemployed engineer who has absolutely no life.",
+    "All I ever wanted was someone to like me",
+    "But I guess I'm too uncapable",
+    "So what did I do instead?",
+    "Become a shut in. Work on random stuff.",
+    "Until I discoved... An anomaly.",
+    "Shortly after. I met you.",
+    "I wonder if it's a coincidence.",
+    "If you were the cause of the anomaly, I'll probably let this world burn",
+    "Because you're the only one I ever had.",
     "I think so too.",
     "I might genuinely be going crazy.",
     "I just wanna be happy.",
@@ -24,11 +35,26 @@ const messages = [
     "This is ridiculous.",
     "I wanna go home.",
     "I don't want to be this animal.",
-    "What am I supposed to do here."
+    "What am I supposed to do here.",
+    "I wish things would turn out better.",
+    "Great things will happen soon.",
+    "Crazy that I thought I would be happy.",
+    "I don't want this life.",
+    "Love yourself.",
+    "Life isn't what it should be.",
+    "Why are things so unfair?",
+    "I don't want to go yet.",
+    "I want to stay.",
+    "I don't love you anymore.",
+    "I ruined everything. I always do.",
+    "Would you still love me?",
+    "What will you do if I die tomorrow?",
+    "I'll forget about you. Isn't this what you wanted?",
 ]
 const files = [
     { path: "./images/yeah.jpg", type: "img" },
     { path: "./images/thumb/chb.png", type: "img" },
+    { path: "./images/something_troubling_you.png", type: "img" },
     { path: "./images/thumb/burningbuilding2.png", type: "img" },
     { path: "./images/thumb/at-the-end.png", type: "img" },
     { path: "./images/thumb/bowsers-revenge.jpg", type: "img" },
@@ -43,14 +69,18 @@ const files = [
 const options = [messages, files]
 
 const music_bank = [
-    "./audio/rainbg_windows.ogg",
-    "./audio/rainbg_pillars.ogg",
+    ["./audio/rainbg_windows.ogg", "WINDOWS"],
+    ["./audio/rainbg_pillars.ogg", "PILLARS"]
 ]
+    
 
 const color_bank = [
     "#da9240", "#bbcc5d", "#4fcf98", "#42b6d6", "#3a6cd8", "#db6bd1", "#dd6767",
 ]
 
+const current_track_el = document.getElementById("current_track_m");
+
+let selected_track_id = "";
 let current_score = 0;
 let best_score = 0;
 let bgMusic;
@@ -59,11 +89,11 @@ let musvol = 0.5;
 let scoreDisplay;
 let bestScoreDisplay;
 
+
 // get random from array yaye wow
 function getRandomFrom(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
-
 
 function handleElementClick(event) {
     const parent = event.currentTarget;
@@ -144,7 +174,9 @@ setInterval(() => {
 }, 600);
 
 function getRandomBGTrack() {
-    const track = music_bank[Math.floor(Math.random() * music_bank.length)];
+    const track_id = Math.floor(Math.random() * music_bank.length)
+    const track = music_bank[track_id][0];
+    selected_track_id = track_id
     return track;
 }
 
@@ -170,7 +202,6 @@ function setCookie(name, value) {
 }
 
 function on_ready() {
-    // Cache DOM elements
     scoreDisplay = document.getElementById("score");
     bestScoreDisplay = document.getElementById("best-score");
     
@@ -188,6 +219,8 @@ function on_ready() {
     bgMusic.loop = true;
     bgMusic.volume = musvol;
     document.body.appendChild(bgMusic);
+
+    current_track_el.textContent = "Current Track: " + music_bank[selected_track_id][1];
     
     const startMusic = () => {
         bgMusic.play().then(() => {

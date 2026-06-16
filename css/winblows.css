@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+:root {
+    --main_bg_color: #031926;
+    --secondary_color: #9DBEBB;
+    --main_text_color_rg: #9DBEBB;
+    --main_text_background_b: #F4E9CD;
+    --main_text_bgw: #031926;
+}
+
+#desktop-environment { 
+    position: relative;
+    width: 100%;
+    height: 78vh; 
+    max-height: 1000px;
+    background-image: url("../images/uva.png");
+    background-size: auto 100%;
+    /* image-rendering: auto; */
+    touch-action: manipulation;
+    overflow: hidden;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
+}
+
+#window {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 800px;
+    height: 600px;
+    background-color: var(--main_bg_color);
+    border: 2px solid var(--secondary_color);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    overflow: hidden;
+    resize: both;
+    min-width: 400px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: var(--main_text_background_b);
+    padding: 3px 3px;
+    cursor: move;
+}
+
+.navbar h3 {
+    margin: 0;
+    color: var(--main_bg_color);
+    font-size: 1.2rem;
+    font-family: Parkinsans;
+}
+
+#chat-window {
+    border: 2px solid var(--secondary_color);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%; 
+    flex: 1;
+    overflow-y: scroll; 
+    padding: 20px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-color: var(--main_text_background_b);
+    color: var(--main_text_bgw);
+    padding: 12px 18px;
+    margin: 10px 0;
+    max-width: 75%;
+    align-self: flex-start;
+    position: relative;
+    animation: message-slide 0.4s cubic-bezier(0.36,0.11,0.25,1.00) forwards;
+}
+
+.container:has(audio) {
+    max-width: none;
+    width:50%;
+}
+
+.container:has(img) {
+    width:50%;
+}
+
+.system-msg {
+    align-self: center;
+    background: none;
+    color: var(--secondary_color);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    text-align: center;
+    max-width: 100%;
+    opacity: 0.7;
+}
+
+@keyframes message-slide {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }  
+}
+
+#desktop-environment audio {
+    width: 100%;
+    min-height: 40px;
+    margin-top: 8px;
+    filter: sepia(20%) saturate(70%) hue-rotate(130deg);
+    display: block;
+    box-sizing: border-box;
+}
+
+.taskbar-item-c {
+    background-color: transparent;
+    color: var(--main_text_color_rg);
+    padding: 8px 15px;
+    border-radius: 2px;
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.taskbar-item-d {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Parkinsans', sans-serif;
+    color: var(--main_text_background_b);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.taskbar-item-d input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+    outline: #9dbebb37 solid 1px;
+}
+
+.taskbar-item-d input[type="range"]::-webkit-slider-runnable-track {
+    background-color: rgba(165, 64, 64, 0.2);
+    border-radius: 0px;
+    overflow: hidden;
+    height: 20px;
+}
+
+.taskbar-item-d input[type="range"]::-moz-range-track {
+    background-color: rgba(165, 64, 64, 0.2);
+    border-radius: 0px;
+    overflow: hidden;
+    height: 20px;
+}
+
+
+.taskbar-item-d input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* margin-top: 4px;       */
+    background-color: var(--secondary_color);
+    border-radius: 0px;
+    height: 20px;
+    width: 20px;
+    box-shadow: -80px 0 0 80px #2779a862;
+    transition: 0.1s;
+}
+
+.taskbar-item-d input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    /* margin-top: 4px;       */
+    background-color: var(--secondary_color);
+    border-radius: 0px;
+    height: 20px;
+    width: 20px;
+    transition: 0.1s;
+}
+
+
+.taskbar-item-d input[type="range"]::-moz-range-progress {
+    appearance: none;
+    /* margin-top: 4px;       */
+    height: 20px;
+    width: 20px;
+    background-color: #2779a862;
+    transition: 0.1s;
+}
+
+
+.taskbar-item-d input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: white;
+}
+.taskbar-item-d input[type="range"]::-moz-range-thumb:hover {
+    background-color: white;
+}
+
+#desktop-environment p {
+    color: var(--main_bg_color);
+    font-family: 'Parkinsans', sans-serif;
+}
+
+.stop_that_awful_song {
+    background-image: url(../images/stop_that_awful_you_get_the_point_button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    filter: drop-shadow(0 0px 4px rgba(132, 183, 255, 0.17));
+}
+
+.stop_that_awful_song[track_playing="false"] {
+    background-image: url(../images/stop_that_awful_you_get_the_point_button_disabled.png);
+}
+
+.chat-img { max-width: 100%; border-radius: 2px; min-width: 380px; max-width: 380px;}
+.container p { margin: 0; font-weight: 500; }
+.time-right { font-size: 0.6rem; float: right; margin-top: 5px; opacity: 0.5; }
+
+#desktop-environment button {
+    background-color: var(--secondary_color);
+    color: var(--main_bg_color);
+    border: none;
+    padding: 12px 25px;
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+#desktop-environment button:hover { background-color: var(--main_text_background_b); }
+#log_selector:hover { background-color: var(--main_text_background_b); }
+#chat-window::-webkit-scrollbar { width: 5px; }
+#chat-window::-webkit-scrollbar-thumb { background: var(--secondary_color); }
+
+#log_selector {
+    background-color: var(--main_text_color_rg);
+    color: var(--main_text_bgw);
+    border: 1px solid var(--secondary_color);
+    padding: 8px;
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#window::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    /* background: var(--secondary_color); */
+    cursor: nw-resize;
+}
+
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    border-top: 2px solid var(--secondary_color);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 999;
+    gap: 10px;
+}
+
+
+
+.taskbar-item {
+    background-color: rgba(100, 45, 45, 0.3);
+    outline: #9dbebb37 solid 1px;
+    color: var(--main_text_background_b);
+    padding: 8px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Parkinsans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    height: 20px;
+}
+
+.start_me_up {
+    background-image: url(../images/tada.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    filter: drop-shadow(0 0px 4px rgba(132, 183, 255, 0.337));
+}
+
+.taskbar-item-right {
+    margin-left: auto;
+}
+
+.taskbar-item:hover {
+    background-color: white;
+    color: var(--main_bg_color);
+}
+
+@media (pointer: coarse) {
+    #taskbar {
+        height: 80px;
+    }
+    .taskbar-item {
+        height: 40px;
+    }
+}

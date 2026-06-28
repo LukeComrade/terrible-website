@@ -37,7 +37,7 @@
         </div>   
     </div>
 
-    <!-- you know I should be better than naming my classes like straight bullshit-->
+    <!-- you know I should know better than naming my classes like straight bullshit-->
     <!-- I mean at least I don't do it on my other projects-->
 
     <div id="gallery-section">
@@ -55,6 +55,9 @@
                 <img src="./images/bowsers-revenge.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
+                <img src="./images/guy_in_my_dream.png" onclick="fallMe(this)">
+            </div>
+            <div class="gallery-item">
                 <img src="./images/harrier.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
@@ -70,7 +73,16 @@
                 <img src="./images/cat_mouse_research.jpg" onclick="fallMe(this)">
             </div>
             <div class="gallery-item">
+                <img src="./images/montchiere_cologne_golden_cat_series.png" onclick="fallMe(this)">
+            </div>
+            <div class="gallery-item">
                 <img src="./images/something_troubling_you.png" onclick="fallMe(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/clark_illus.png" onclick="fallMe(this)">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/thing.png" onclick="fallMe(this)">
             </div>
         </div>
     </div>
@@ -158,7 +170,24 @@
     </footer>
     </body>
 
-    <script>
+    <script>   
+        let audio_dio_dio = new Audio()
+        function bam(blam) {
+            const audio = document.createElement("audio");
+            if (!blam) {
+                audio.src = "./audio/bam.ogg";
+            } else {
+                audio.src = "./audio/bam2.ogg";
+            }
+
+            
+            audio.autoplay = true;
+            audio.volume = 0.2; //replace with sfxvol from cookies
+            audio.addEventListener("ended", () => {
+                audio.remove();
+            });
+        }
+
         function fallMe(imgElement) {
             if (imgElement.hasAttribute("falling-down")) return;
 
@@ -170,11 +199,13 @@
             setTimeout(() => {
                 if (!imgElement.hasAttribute("falling-down")) {
                     imgElement.style.transform = '';
+                    bam(false);
                 }
             }, 100);
-
+            
             if (clicks >= 10) {
                 imgElement.setAttribute("falling-down", "true");
+                bam(true);
             }
         }
     </script>

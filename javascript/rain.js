@@ -11,6 +11,7 @@ const messages = [
     "He said I'm annoying??",
     "That's funny dude",
     "I walked away from you",
+    "I guess I'll just run away",
     "I don't want to talk to you",
     "You broke it again. Why do you do this to me?",
     "I-I'll fix it. See look! All good now.",
@@ -33,6 +34,9 @@ const messages = [
     "I wanna be accepted.",
     "This is what I am, I guess.",
     "This is ridiculous.",
+    "It was like she missed him",
+    "But he was a terrible person",
+    "Or was he? I don't really remember anymore",
     "I wanna go home.",
     "I don't want to be this animal.",
     "What am I supposed to do here.",
@@ -41,11 +45,15 @@ const messages = [
     "Crazy that I thought I would be happy.",
     "I don't want this life.",
     "Love yourself.",
+    "Hey, do you wanna eat hummus?",
     "Life isn't what it should be.",
     "Why are things so unfair?",
     "I don't want to go yet.",
     "I want to stay.",
     "I don't love you anymore.",
+    "I'm sure he's fine",
+    "I'm sorry, I probably said what I shouldn't",
+    "This is weird",
     "I ruined everything. I always do.",
     "Would you still love me?",
     "What will you do if I die tomorrow?",
@@ -53,14 +61,18 @@ const messages = [
 ]
 const files = [
     { path: "./images/yeah.jpg", type: "img" },
+    { path: "./images/thumb/clark_illus.png", type: "img" },
     { path: "./images/thumb/chb.png", type: "img" },
     { path: "./images/something_troubling_you.png", type: "img" },
     { path: "./images/thumb/burningbuilding2.png", type: "img" },
     { path: "./images/thumb/at-the-end.png", type: "img" },
     { path: "./images/thumb/bowsers-revenge.jpg", type: "img" },
+    { path: "./images/thumb/guy_in_my_dream.png", type: "img" },
     { path: "./images/thumb/harrier.jpg", type: "img" },
     { path: "./images/thumb/perfect.jpg", type: "img" },
     { path: "./images/thumb/stv.jpg", type: "img" },
+    { path: "./images/thumb/thing.png", type: "img" },
+    { path: "./images/thumb/montchiere_cologne_golden_cat_series.png", type: "img" },
     { path: "./images/thumb/poster_of_an_old_project.png", type: "img" },
     { path: "./images/thumb/cat_mouse_research.jpg", type: "img" },
     { path: "./images/bomb1.png", type: "img" }
@@ -69,8 +81,9 @@ const files = [
 const options = [messages, files]
 
 const music_bank = [
-    ["./audio/rainbg_windows.ogg", "WINDOWS"],
-    ["./audio/rainbg_pillars.ogg", "PILLARS"]
+    ["./audio/rainbg_windows.ogg", "windows"],
+    ["./audio/rainbg_pillars.ogg", "pillars"],
+    ["./audio/rainbg_bridges.ogg", "bridges"]
 ]
     
 
@@ -94,6 +107,7 @@ let bestScoreDisplay;
 function getRandomFrom(array) {
     return array[Math.floor(Math.random() * array.length)];
 }
+
 
 function handleElementClick(event) {
     const parent = event.currentTarget;
@@ -132,6 +146,8 @@ function shakescreen() {
     }, 10);
 }
 
+
+// IF SOMETHING BREAKS::::: it's not your fault anymore. It's up to god now
 setInterval(() => {
     let type = Math.floor(Math.random() * options.length);
     let create = getRandomFrom(options[type]);

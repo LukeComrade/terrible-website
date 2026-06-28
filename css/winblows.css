@@ -6,6 +6,7 @@
     --main_text_color_rg: #9DBEBB;
     --main_text_background_b: #F4E9CD;
     --main_text_bgw: #031926;
+    --taskbar-highlight: #9dbebb53;
 }
 
 #desktop-environment { 
@@ -53,7 +54,7 @@
 }
 
 #chat-window {
-    border: 2px solid var(--secondary_color);
+    border-bottom: 2px solid #75e6ff45;
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%; 
     flex: 1;
@@ -65,12 +66,23 @@
     flex-direction: column;
 }
 
+.chat_window_bottom_thing {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin: 5px 0 5px 0;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
 .container {
     background-color: var(--main_text_background_b);
     color: var(--main_text_bgw);
     padding: 12px 18px;
     margin: 10px 0;
     max-width: 75%;
+    width: max-content;
+    height: max-content;
     align-self: flex-start;
     position: relative;
     animation: message-slide 0.4s cubic-bezier(0.36,0.11,0.25,1.00) forwards;
@@ -83,6 +95,7 @@
 
 .container:has(img) {
     width:50%;
+    max-width: 300px;
 }
 
 .system-msg {
@@ -215,7 +228,12 @@
     background-image: url(../images/stop_that_awful_you_get_the_point_button_disabled.png);
 }
 
-.chat-img { max-width: 100%; border-radius: 2px; min-width: 380px; max-width: 380px;}
+.chat-img { 
+    max-width: 100%; 
+    border-radius: 2px; 
+    min-width: 300px;
+}
+
 .container p { margin: 0; font-weight: 500; }
 .time-right { font-size: 0.6rem; float: right; margin-top: 5px; opacity: 0.5; }
 
@@ -265,7 +283,7 @@
     height: 50px;
     background-color: rgba(0, 0, 0, 0.8);
     
-    border-top: 2px solid var(--secondary_color);
+    border-top: 2px solid var(--taskbar-highlight);
     display: flex;
     align-items: center;
     padding: 0 20px;

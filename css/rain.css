@@ -39,22 +39,22 @@
 
 @keyframes shake {
     0% {
-        transform: translate(5, 0);
+        translate: 5px 0;
     }
     20% {
-        transform: translate(5px, -5px);
+        translate: 5px -5px;
     }
     40% {
-        transform: translate(-5px, 5px);
+        translate: -5px 5px;
     }
     60% {
-        transform: translate(5px, -5px);
+        translate: 5px -5px;
     }
     80% {
-        transform: translate(-5px, 5px);
+        translate: -5px 5px;
     }
     100% {
-        transform: translate(0, 0);
+        translate: 0 0;
     }
 }
 
@@ -92,18 +92,29 @@ html, body{
     background-size: 20%;
     overflow: hidden;
     touch-action: none;
-    position: fixed;
+    position: absolute;
     margin: 0;
     padding: 0;
     user-select: none;
     -moz-user-select: none;
     image-rendering: pixelated;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    top: 0; /* showowowowaww  */
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 .rain {
     animation: forwards rain 3s ease-in-out;
     rotate: 30deg;
     height: 25vmin;
     width: 25vmin;
+    touch-action: none;
     /* padding: 2%; */
     background-color: white;
     display: flex;
@@ -112,7 +123,7 @@ html, body{
     position: absolute;
     top: 0;
     left: 0;
-    right:0;
+    /* right:0; */
     /* margin-left: 200px; */
     border: 1px black solid;
     box-sizing: border-box;
@@ -136,7 +147,7 @@ html, body{
 }
 
 #score {
-    position: fixed;
+    position: absolute;
     font-family: 'Parkinsans', sans-serif;
     top: 10px;
     left: 10px;
@@ -145,10 +156,11 @@ html, body{
     background-color: black;
     padding: 5px 10px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    text-shadow: 0 0px 5px #9DBEBB;
 }
 
 #best-score {
-    position: fixed;
+    position: absolute;
     font-family: 'Parkinsans', sans-serif;
     top: 10px;
     right: 10px;
@@ -157,20 +169,29 @@ html, body{
     background-color: black;
     padding: 5px 10px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    text-shadow: 0 0px 5px #9DBEBB;
 }
 
 #home {
-    position: fixed;
+    position: absolute;
     font-family: 'Parkinsans', sans-serif;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: calc(100vh - 70px);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
     font-size: 1.2rem;
     color: white;
     background-color: black;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    max-width: 90vw;
+    white-space: normal;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 #home:hover {
@@ -180,11 +201,10 @@ html, body{
 }
 
 #current_track_m {
-    position: fixed;
+    position: absolute;
     margin: 10px;
     top: 10px;
     left: 130px;
-
     color: var(--main_text_color_rg);
     font-family: 'Parkinsans', sans-serif;
     font-weight: bold;
@@ -196,15 +216,19 @@ html, body{
         top: 150px;
         left: 10px;
     }
+    #home {
+        top: calc(100vh - 110px);
+    }
 }
 .volume_container_thing {
-    position: fixed;
+    position: absolute;
     display: grid;
     gap: 10px;
     grid-template-columns: auto 1fr;
     /* justify-content: space-between; */
     margin: 10px;
     top: 60px;
+    left: 0;
     text-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     color: var(--main_text_background_b);
     font-family: 'Parkinsans', sans-serif;
@@ -225,21 +249,21 @@ html, body{
     right: 20px; */
 }
 
-@keyframes shaking { /* 0.2s infinite alternate */
-        0%, 100% {
-        transform: translateX(-50%);
-        }
-        20% {
-        transform: translateX(-50%) translate(-1px, 1px);
-        }
-        40% {
-        transform: translateX(-50%) translate(1px, -1px);
-        }
-        60% {
-        transform: translateX(-50%) translate(-2px, 1px);
-        }
-        80% {
-        transform: translateX(-50%) translate(2px, -3px);
+@keyframes shaking { 
+    0%, 100% {
+        translate: 0 0;
+    }
+    20% {
+        translate: -1px 1px;
+    }
+    40% {
+        translate: 1px -1px;
+    }
+    60% {
+        translate: -2px 1px;
+    }
+    80% {
+        translate: 2px -3px;
     }
 }
 
@@ -251,8 +275,6 @@ html, body{
     background-position-x: -100%;
     }
 }
-
-
 
 input[type="range"] {
     -webkit-appearance: none;

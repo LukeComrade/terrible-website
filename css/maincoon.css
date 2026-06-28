@@ -158,22 +158,25 @@
     background-size: 45%;
     rotate: 350deg;
     object-fit: contain;
-    cursor: pointer;
+    /* cursor: pointer; */
     touch-action: manipulation;
     /* width: 50%; */
     user-select: none;
     margin: 0 auto;
+    opacity: 0.5;
+    z-index: -999;
 }
 
 .human_container_viewport {
+    rotate: 350deg;
     width: 95%;
     height: 95%; 
     object-fit: contain;
-    cursor: pointer;
     touch-action: manipulation;
     /* width: 50%; */
     user-select: none;
     margin: 0 auto;
+    z-index: 1;
 }
 
 
@@ -208,9 +211,8 @@ body {
     /* justify-content: center; */
     align-items: center;
     flex-direction: row;
-    max-height: 120px;
-    height: 120px;
-
+    max-height: 130px;
+    height: 130px;
 }
 
 .main_title {
@@ -234,6 +236,10 @@ body {
     margin: 32px;
     margin-right: 50%;
     padding: 20px;
+}
+
+#welcome_text {
+    /* position: static; */
 }
 
 @keyframes shaking { /* 0.2s infinite alternate */
@@ -338,6 +344,10 @@ p {
         /* padding-top: 10px; */
         display: grid;
         /* top: 80px; */
+    }
+    .center_div_drive {
+        max-height: 180px;
+        height: 180px;
     }
 }
 

@@ -34,7 +34,7 @@ const welcome_word_bank = [
         "Velkommen",
         "Meow",
         "Mrrow"
-        ]
+]
         
 const color_bank = [
     "#F4E9CD", "#77ACA2", "#468189", "#031926"
@@ -131,14 +131,15 @@ function dogcat_petting_machine_clicky() {
             play_track('./audio/dog_cat_means_we_love_you.ogg');
             console.log("Playing dog_cat_means_we_love_you.ogg from 1");
         } else {
+            console.log(audio_main.ended.toString() + "audio ended " + (audio_main.src.split('/').pop() !== 'dog_cat_means_we_love_you.ogg').toString())
 
-        if (audio_main.ended === true || audio_main.src.split('/').pop() !== 'dog_cat_means_we_love_you.ogg') {
-            play_track('./audio/dog_cat_means_we_love_you.ogg');
-            console.log("Playing dog_cat_means_we_love_you.ogg from 2");
+            if (audio_main.ended === true || audio_main.src.split('/').pop() !== 'dog_cat_means_we_love_you.ogg' || (audio_main.paused === true && audio_main.src.split('/').pop().includes('dog_cat_means_we_love_you.ogg')) ) {
+                play_track('./audio/dog_cat_means_we_love_you.ogg');
+                console.log("Playing dog_cat_means_we_love_you.ogg from 2");
         }
     }} else if (dog_cat_current_score > 100) {
         dog_cat_viewport_el.setAttribute('data-animation', 'crazy_clicky');
-
+        // hmm
         // const link = document.createElement('a');
         // link.href = './data/iloveyou.zip';
         // link.download = 'iloveyou.zip';
@@ -149,10 +150,16 @@ function dogcat_petting_machine_clicky() {
     }
     
     if (button.dataset.state === "to-cat") {
-        dog_cat_viewport_el.src = "images/ultra_crazy_dog_with_INSANE_magic_powers_happy.gif";
+        if (dog_cat_viewport_el.src.split('/').pop() != "ultra_crazy_dog_with_INSANE_magic_powers_happy.gif") { 
+            dog_cat_viewport_el.src = "images/ultra_crazy_dog_with_INSANE_magic_powers_happy.gif";
+            console.log(dog_cat_viewport_el.src.split('/').pop())
+        }
         play_sound("./audio/bark.ogg");
+
     } else {
-        dog_cat_viewport_el.src = "images/ultra_crazy_cat_with_INSANE_magic_powers_happy.gif";
+        if (dog_cat_viewport_el.src.split('/').pop() != "ultra_crazy_cat_with_INSANE_magic_powers_happy.gif") {
+            dog_cat_viewport_el.src = "images/ultra_crazy_cat_with_INSANE_magic_powers_happy.gif"; 
+        }
         play_sound("./audio/meow.ogg");
     }
     
@@ -186,6 +193,10 @@ function dogcat_petting_machine_switch() {
         text.textContent = "DOG PETTING MACHINE™";
         img.src = "images/ultra_crazy_dog_with_INSANE_magic_powers_breathing.gif";
     }
+}
+
+function summon_clocky() {
+    play_sound("./audio/clocky.ogg");
 }
 
 function delay(duration) {
